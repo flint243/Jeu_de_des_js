@@ -1,0 +1,576 @@
+body {
+  background-color: green;
+  padding-top: 20px;
+}
+#content {
+  text-align: center;
+}
+
+#btRecommence {
+  position: absolute;
+  right: 10px;
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#winMessage {
+  width: 20%;
+  height: auto;
+  position: absolute;
+  top: 120px;
+  margin-left: 38%;
+  font-size: 3rem;
+  background-color: white;
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+  color: orange;
+  display: none;
+}
+#titreJeu {
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 210px;
+  margin-left: 15%;
+  font-size: 5em;
+  background-color: rgba(36, 102, 60, 0.609);
+  border-radius: 5px;
+  border: none;
+  display: block;
+  padding: 10px;
+  color: red;
+}
+.cadreDe {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  height: 600px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  border-radius: 1rem;
+  text-align: center;
+  background-color: rgba(7, 205, 139, 0.383);
+}
+#cadreDe1 {
+  width: 100%;
+  padding: 20px;
+  background-color: rgb(24, 88, 24);
+}
+
+.leDe {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  background-color: white;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  top: 40%;
+  display: none;
+}
+
+.leDeWrap {
+  position: relative;
+  height: 100%;
+}
+
+.de1 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  top: 45%;
+  background-color: black;
+  display: none;
+}
+
+.de2 {
+  display: none;
+}
+.pointHaut2 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  right: 10px;
+  top: 5%;
+  background-color: black;
+}
+.pointBas2 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  left: 10px;
+  top: 85%;
+  background-color: black;
+}
+
+.de3 {
+  display: none;
+}
+.pointHaut3 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  right: 10px;
+  top: 5%;
+  background-color: black;
+}
+.pointCentre3 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  right: 90px;
+  top: 45%;
+  background-color: black;
+}
+.pointBas3 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  left: 10px;
+  top: 85%;
+  background-color: black;
+}
+
+.de4 {
+  display: none;
+}
+.pointHautG4 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  left: 10px;
+  top: 5%;
+  background-color: black;
+}
+.pointBasG4 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  left: 10px;
+  top: 85%;
+  background-color: black;
+}
+.pointHautD4 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  right: 10px;
+  top: 5%;
+  background-color: black;
+}
+.pointBasD4 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  right: 10px;
+  top: 85%;
+  background-color: black;
+}
+
+.de5 {
+  display: none;
+}
+.pointHautG5 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  left: 10px;
+  top: 5%;
+  background-color: black;
+}
+.pointBasG5 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  left: 10px;
+  top: 85%;
+  background-color: black;
+}
+.pointCentre5 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  right: 90px;
+  top: 45%;
+  background-color: black;
+}
+.pointHautD5 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  right: 10px;
+  top: 5%;
+  background-color: black;
+}
+.pointBasD5 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  right: 10px;
+  top: 85%;
+  background-color: black;
+}
+
+.de6 {
+  display: none;
+}
+.pointHautG6 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  left: 10px;
+  top: 5%;
+  background-color: black;
+}
+.pointBasG6 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  left: 10px;
+  top: 85%;
+  background-color: black;
+}
+.pointCentreG6 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  right: 10px;
+  top: 45%;
+  background-color: black;
+}
+.pointCentreD6 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  left: 10px;
+  top: 45%;
+  background-color: black;
+}
+.pointHautD6 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  right: 10px;
+  top: 5%;
+  background-color: black;
+}
+.pointBasD6 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  right: 10px;
+  top: 85%;
+  background-color: black;
+}
+
+.resExt {
+  width: auto;
+  height: auto;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+#resultat {
+  width: 100%;
+  position: absolute;
+  font-size: 1.5rem;
+  color: white;
+}
+
+/****************************** LANCER DE N2 **********************************/
+#cadreDe2 {
+  width: 100%;
+  padding: 20px;
+  background-color: rgb(11, 97, 11);
+}
+.leDeBis {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  background-color: white;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  top: 40%;
+  display: none;
+}
+
+.leDeBisWrap {
+  position: relative;
+  height: 100%;
+}
+
+.deBis1 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  top: 45%;
+  background-color: black;
+  display: none;
+}
+
+.deBis2 {
+  display: none;
+}
+.pointHaut2Bis {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  right: 10px;
+  top: 5%;
+  background-color: black;
+}
+.pointBas2Bis {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  left: 10px;
+  top: 85%;
+  background-color: black;
+}
+
+.deBis3 {
+  display: none;
+}
+.pointHaut3Bis {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  right: 10px;
+  top: 5%;
+  background-color: black;
+}
+.pointCentre3Bis {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  right: 90px;
+  top: 45%;
+  background-color: black;
+}
+.pointBas3Bis {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  left: 10px;
+  top: 85%;
+  background-color: black;
+}
+
+.deBis4 {
+  display: none;
+}
+.pointHautG4Bis {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  left: 10px;
+  top: 5%;
+  background-color: black;
+}
+.pointBasG4Bis {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  left: 10px;
+  top: 85%;
+  background-color: black;
+}
+.pointHautD4Bis {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  right: 10px;
+  top: 5%;
+  background-color: black;
+}
+.pointBasD4Bis {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  right: 10px;
+  top: 85%;
+  background-color: black;
+}
+
+.deBis5 {
+  display: none;
+}
+.pointHautG5Bis {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  left: 10px;
+  top: 5%;
+  background-color: black;
+}
+.pointBasG5Bis {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  left: 10px;
+  top: 85%;
+  background-color: black;
+}
+.pointCentre5Bis {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  right: 90px;
+  top: 45%;
+  background-color: black;
+}
+.pointHautD5Bis {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  right: 10px;
+  top: 5%;
+  background-color: black;
+}
+.pointBasD5Bis {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  right: 10px;
+  top: 85%;
+  background-color: black;
+}
+
+.deBis6 {
+  display: none;
+}
+.pointHautG6Bis {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  left: 10px;
+  top: 5%;
+  background-color: black;
+}
+.pointBasG6Bis {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  left: 10px;
+  top: 85%;
+  background-color: black;
+}
+.pointCentreG6Bis {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  right: 10px;
+  top: 45%;
+  background-color: black;
+}
+.pointCentreD6Bis {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  left: 10px;
+  top: 45%;
+  background-color: black;
+}
+.pointHautD6Bis {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  right: 10px;
+  top: 5%;
+  background-color: black;
+}
+.pointBasD6Bis {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  right: 10px;
+  top: 85%;
+  background-color: black;
+}
+
+.resExtBis {
+  width: auto;
+  height: auto;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+#resultatBis {
+  width: 100%;
+  position: absolute;
+  font-size: 1.5rem;
+  color: white;
+}
+
+/****************************** CHOIX **********************************/
+
+#cadreChoix {
+  display: flex;
+  width: auto;
+  height: auto;
+  position: absolute;
+}
+
+/****************************** BOUTTON **********************************/
+button#btChance {
+  width: 300px;
+  position: relative;
+  top: 50px;
+  padding: 20px;
+  border-radius: 5px;
+  border: none;
+  font-size: large;
+  cursor: pointer;
+}
