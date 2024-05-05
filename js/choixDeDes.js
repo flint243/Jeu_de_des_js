@@ -1,72 +1,104 @@
-// Fonction qui génère un nombre aléatoire entre 1 et 6
-// Retourne le nombre
-const lancerDe = function () {
-    // Gérer un nombre entre 1 et 6
-    const nombreDecimal = Math.floor(Math.random() * 6) + 1;
-    // Retourner ce nombre
-    return nombreDecimal;
-}
+class NameBooking {
+    constructor() {
+      let btnChoixNomA = document.getElementById('btConfirmerA');
+      btnChoixNomA.addEventListener("click", this.checkFormA.bind(this));
+  
+      let btnChoixNomB = document.getElementById('btConfirmerB');
+      btnChoixNomB.addEventListener("click", this.checkFormB.bind(this));
 
-// Tableau associatif pour mapper les nombres à leur texte correspondant
-const deTexte = {
-    '1': 'Un',
-    '2': 'Deux',
-    '3': 'Trois',
-    '4': 'Quatre',
-    '5': 'Cinq',
-    '6': 'Six',
-}
+      let btn = document.getElementById('makeChoice');
+        // Modifiez le style du bouton pour le rendre visible
+        btn.style.display = 'none'; // ou 'inline-block' selon votre mise en page
 
-// Fonction pour rendre les dés invisibles
-const rendreDesInvisibles = function () {
-    const de = document.querySelectorAll('.leDe .leDeWrap div[class^="de"]');
-    de.forEach(de => {
-        de.style.display = 'none';
-    });
-}
-// Fonction pour rendre les dés2 invisibles
-const rendreDesBis_Invisibles = function () {
-    const desBis = document.querySelectorAll('.leDeBis .leDeBisWrap div[class^="deBis"]');
-    desBis.forEach(deBis => {
-        deBis.style.display = 'none';
-    });
-}
+        let cadreJoueurB = document.getElementById('cadreJoueurB');
+        cadreJoueurB.style.display = 'none'; 
 
-// Fonction pour rendre les dés3 invisibles
-const rendreDesTrois_Invisibles = function () {
-    const desTrois = document.querySelectorAll('.leDeTrois .leDeTroisWrap div[class^="deTrois"]');
-    desTrois.forEach(deTrois => {
-        deTrois.style.display = 'none';
-    });
+        // click dé n°1
+        const choix1 = document.getElementById('btnChoixDe1');
+        choix1.addEventListener('click', this.afficherDe1HTML.bind(this));
+
+        // click dé n°2
+        const choix2 = document.getElementById('btnChoixDe2');
+        choix2.addEventListener('click', this.afficherDe2HTML.bind(this));
+
+  
+      this.checkFormNameA = false;
+      this.checkFormNameB = false;
+    }
+  
+    //------------ Sécuriser le formulaire ------------//
+    checkFormA(e) {
+      let nom = document.getElementById('joueurA');
+      let nom_m = document.getElementById('joueurA_manquant');
+  
+      //------------ Sécuriser le prenom et messages d'erreur ------------//
+      if (nom.validity.valueMissing) {
+        e.preventDefault();
+        this.checkFormNameA = false;
+      } else {
+        this.checkFormNameA = true;
+        //nom_m.textContent = '';
+        this.storageInfosA(); // Appel de storageInfosA uniquement si le formulaire est rempli
+      }
+    }
+  
+    checkFormB(e) {
+      let nomB = document.getElementById('joueurB');
+      let nomB_m = document.getElementById('joueurB_manquant');
+      //------------ Sécuriser le prenom et messages d'erreur ------------//
+      if (nomB.validity.valueMissing) {
+        e.preventDefault();
+        this.checkFormNameB = false;
+      } else {
+        this.checkFormNameB = true;
+        //nom_m.textContent = '';
+        this.storageInfosB(); // Appel de storageInfosB uniquement si le formulaire est rempli
+      }
+    }
+  
+    //------------ Stockage des infos dans le localStorage ------------//
+    storageInfosA() {
+      // Vérification si le formulaire est rempli avant de stocker les informations
+      if (this.checkFormNameA) {
+        localStorage.setItem('prenomA', $('#joueurA').val());
+
+        let btn = document.getElementById('makeChoice');
+        let cadreJoueurB = document.getElementById('cadreJoueurB');
+        // Modifiez le style du bouton pour le rendre visible
+        btn.style.display = 'block'; // ou 'inline-block' selon votre mise en page
+        cadreJoueurB.style.display = 'block';
+        console.log('joueur A stocké');
+    }
 }
-
-// Fonction pour rendre le titre invisible
-const rendreTitreInvisibles = function () {
-    const titreJeuDe = document.getElementById('titreJeu');
-    titreJeuDe.style.display = 'none';
-}
-// Fonction pour rendre le message invisible
-const rendreMessageInvisiblesBis = function () {
-    const messageDeWin = document.getElementById('winMessage');
-    messageDeWin.style.display = 'none';
-}
-// Fonction pour rendre le message3 invisible
-const rendreMessageInvisiblesTrois = function () {
-    const messageDeWin = document.getElementById('winMessage');
-    messageDeWin.style.display = 'none';
-}
-
-// Fonction pour rendre le message3 invisible
-const rendreTripleWinInvisible = function () {
-    const tripleWinMsg = document.getElementById('tripleWinMessage');
-    tripleWinMsg.style.display = 'none';
-}
+  
+    storageInfosB() {
+      // Vérification si le formulaire est rempli avant de stocker les informations
+      if (this.checkFormNameB) {
+        localStorage.setItem('prenomB', $('#joueurB').val());
+        
+        let btn = document.getElementById('makeChoice');
+        // Modifiez le style du bouton pour le rendre visible
+        btn.style.display = 'block'; // ou 'inline-block' selon votre mise en page
+        console.log('joueur B stocké');
+      }
+    }
+  }
+  
+  new NameBooking();
+  
+  
+  
+  
+  
 
 
 
 
+
+
+/*
 // Fonction pour afficher le résultat en HTMlocation.reload();L
-const afficherResultatHTML = function () {
+const troisDesHTML = function () {
     // Rendre tous les dés invisibles au début
     rendreDesInvisibles();
     rendreDesBis_Invisibles();
@@ -142,7 +174,7 @@ const afficherResultatHTML = function () {
             de.style.backgroundColor = 'red';
         } 
     }
-/**************************************************** */
+/**************************************************** *
 const winMsg2 = function (resultat, resultatTrois) {
     const winerMsg = document.getElementById('winMessage');
     const de = document.querySelector('.leDe');
@@ -154,7 +186,7 @@ const winMsg2 = function (resultat, resultatTrois) {
         } 
     }
 
-    /**************************************************** */
+    /**************************************************** *
 const winMsg3 = function (resultatBis, resultatTrois) {
     const winerMsg = document.getElementById('winMessage');
     const deBis = document.querySelector('.leDe');
@@ -180,7 +212,9 @@ const winMsg3 = function (resultatBis, resultatTrois) {
 }
 
 
-/*
+/************************ DEUX DES **********************************************
+
+
 // Fonction pour afficher le résultat en HTMlocation.reload();L
 const deuxDesHTML = function () {
     // Rendre tous les dés invisibles au début
@@ -268,22 +302,15 @@ const winMsg3 = function (resultatBis, resultatTrois) {
     if (resultatBis === resultatTrois) {
         winMsg3(resultatBis, resultatTrois);
     }
-}
-*/
-/************************************************************* */
 
-const resetHTML = function () {
-    location.reload();
 }
 
-// Ajouter un gestionnaire d'événement pour le bouton
-const bouton = document.getElementById('btChance');
-bouton.addEventListener('click', afficherResultatHTML);
 
-/*
-// Ajouter un gestionnaire d'événement pour le bouton trois dés
+//Ajouter un gestionnaire d'événement pour le bouton deux dés
+const bouton2Des = document.getElementById('btnChoixDe2');
+bouton2Des.addEventListener('click', deuxDesHTML);
+
+//Ajouter un gestionnaire d'événement pour le bouton trois dés
 const bouton3Des = document.getElementById('btnChoixDe2');
-bouton3Des.addEventListener('click', deuxDesHTML);
+bouton3Des.addEventListener('click', troisDesHTML);
 */
-const bouton2 = document.getElementById('btRecommence');
-bouton2.addEventListener('click', resetHTML);

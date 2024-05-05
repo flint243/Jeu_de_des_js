@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Choix joueurs et dés</title>
+    <link rel="stylesheet" href="css/choixJoueurs.css" />
+  </head>
+  <body>
+    <div id="content">
+      <div id="cadreChoix">
+        <div id="cadreInt">
+          <form action="nameValidate" method="POST" id="formulaire">
+            <div id="inputs">
+              <div id="cadreJoueurA">
+              <input
+                type="text"
+                id="joueurA"
+                name="joueurA"
+                placeholder="Joueur A" required="required" maxlength="20"
+              />
+              <span id="joueurA_manquant" class="saisie"></span><br>
+              <button type="button" id="btConfirmerA" name="pseudoGame">Confirmer</button>
+             </div>
+
+              <div id="cadreJoueurB">
+                <h3>Voulez vous séléctionner un deuxième jouer ?</h3>
+                <input
+                  type="text"
+                  id="joueurB"
+                  name="joueurB"
+                  placeholder="Joueur B" required="required" maxlength="20"
+                />
+                <span id="joueurB_manquant" class="saisie"></span><br>
+                <button type="button" id="btConfirmerB" name="confirmerB">Confirmer</button>
+                <div id="titreH3">
+                  <h3>Sinon choisissez le nombre de dés et appuyez sur entrer</h3>
+                </div>
+
+                <div id="cadreChoixDes">
+                  <button id="btnChoixDe2">Deux dés</button>
+                  <button id="btnChoixDe3">Trois dés</button>
+              </div>
+            </div>
+            
+      
+            </div>
+            <button name="makeChoice" id="makeChoice">
+              <a class="makeChoice" href="jeux.html">Entrer</a>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/choixDeDes.js"></script>
+  </body>
+</html>

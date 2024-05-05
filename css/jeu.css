@@ -6,6 +6,14 @@ body {
   text-align: center;
 }
 
+.decompte{
+  width: auto;
+  height: auto;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 #btRecommence {
   position: absolute;
   right: 10px;
@@ -19,8 +27,8 @@ body {
   width: 20%;
   height: auto;
   position: absolute;
-  top: 120px;
-  margin-left: 38%;
+  top: 110px;
+  margin-left:0%;
   font-size: 3rem;
   background-color: white;
   border-radius: 5px;
@@ -29,12 +37,26 @@ body {
   color: orange;
   display: none;
 }
+#tripleWinMessage {
+  width: 40%;
+  height: auto;
+  position: absolute;
+  top: 110px;
+  margin-left:0%;
+  font-size: 3rem;
+  background-color: white;
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+  color: red;
+  display: none;
+}
 #titreJeu {
   width: auto;
   height: auto;
   position: absolute;
   top: 210px;
-  margin-left: 15%;
+  margin-left: 0%;
   font-size: 5em;
   background-color: rgba(36, 102, 60, 0.609);
   border-radius: 5px;
@@ -46,14 +68,14 @@ body {
 .cadreDe {
   display: flex;
   flex-direction: row;
-  width: 80%;
+  width: 60%;
   height: 600px;
   position: relative;
   margin-left: auto;
   margin-right: auto;
   padding: 20px;
   border-radius: 1rem;
-  text-align: center;
+  justify-content: center;
   background-color: rgba(7, 205, 139, 0.383);
 }
 #cadreDe1 {
@@ -66,7 +88,7 @@ body {
   width: 200px;
   height: 200px;
   border-radius: 10px;
-  background-color: white;
+  /*background-color: white;*/
   position: relative;
   margin-left: auto;
   margin-right: auto;
@@ -315,7 +337,7 @@ body {
   width: 200px;
   height: 200px;
   border-radius: 10px;
-  background-color: white;
+  /*background-color: white;*/
   position: relative;
   margin-left: auto;
   margin-right: auto;
@@ -555,6 +577,257 @@ body {
 }
 
 /****************************** CHOIX **********************************/
+
+/****************************** LANCER DE N3 **********************************/
+#cadreDeTrois {
+  width: 100%;
+  padding: 20px;
+  background-color: rgb(8, 130, 8);
+}
+.leDeTrois {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  /*background-color: white;*/
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  top: 40%;
+  display: none;
+}
+
+.leDeTroisWrap {
+  position: relative;
+  height: 100%;
+}
+
+.deTrois1 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  top: 45%;
+  background-color: black;
+  display: none;
+}
+
+.deTrois2 {
+  display: none;
+}
+.pointHaut2Trois {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  right: 10px;
+  top: 5%;
+  background-color: black;
+}
+.pointBas2Trois {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  left: 10px;
+  top: 85%;
+  background-color: black;
+}
+
+.deTrois3 {
+  display: none;
+}
+.pointHaut3Trois {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  right: 10px;
+  top: 5%;
+  background-color: black;
+}
+.pointCentre3Trois {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  right: 90px;
+  top: 45%;
+  background-color: black;
+}
+.pointBas3Trois {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  left: 10px;
+  top: 85%;
+  background-color: black;
+}
+
+.deTrois4 {
+  display: none;
+}
+.pointHautG4Trois {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  left: 10px;
+  top: 5%;
+  background-color: black;
+}
+.pointBasG4Trois {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  left: 10px;
+  top: 85%;
+  background-color: black;
+}
+.pointHautD4Trois {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  right: 10px;
+  top: 5%;
+  background-color: black;
+}
+.pointBasD4Trois {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  right: 10px;
+  top: 85%;
+  background-color: black;
+}
+
+.deTrois5 {
+  display: none;
+}
+.pointHautG5Trois {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  left: 10px;
+  top: 5%;
+  background-color: black;
+}
+.pointBasG5Trois {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  left: 10px;
+  top: 85%;
+  background-color: black;
+}
+.pointCentre5Trois {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  right: 90px;
+  top: 45%;
+  background-color: black;
+}
+.pointHautD5Trois {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  right: 10px;
+  top: 5%;
+  background-color: black;
+}
+.pointBasD5Trois {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  right: 10px;
+  top: 85%;
+  background-color: black;
+}
+
+.deTrois6 {
+  display: none;
+}
+.pointHautG6Trois {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  left: 10px;
+  top: 5%;
+  background-color: black;
+}
+.pointBasG6Trois {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  left: 10px;
+  top: 85%;
+  background-color: black;
+}
+.pointCentreG6Trois {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  right: 10px;
+  top: 45%;
+  background-color: black;
+}
+.pointCentreD6Trois {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  left: 10px;
+  top: 45%;
+  background-color: black;
+}
+.pointHautD6Trois {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  right: 10px;
+  top: 5%;
+  background-color: black;
+}
+.pointBasD6Trois {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  right: 10px;
+  top: 85%;
+  background-color: black;
+}
+
+.resExtTrois {
+  width: auto;
+  height: auto;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+#resultatTrois {
+  width: 100%;
+  position: absolute;
+  font-size: 1.5rem;
+  color: white;
+}
+
+
 
 #cadreChoix {
   display: flex;
