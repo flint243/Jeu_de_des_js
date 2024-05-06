@@ -31,7 +31,6 @@ const rendreDesBis_Invisibles = function () {
         deBis.style.display = 'none';
     });
 }
-
 // Fonction pour rendre les dés3 invisibles
 const rendreDesTrois_Invisibles = function () {
     const desTrois = document.querySelectorAll('.leDeTrois .leDeTroisWrap div[class^="deTrois"]');
@@ -98,9 +97,11 @@ const afficherResultatHTML = function () {
         deVisible3.style.display = 'none';
         const resultatDivTrois = document.getElementById('resultatTrois');
         resultatDivTrois.style.display = 'none';
+
     
         $("#bandeauInfos").text(" Bonjour" +" " +localStorage.prenomA+ " " +"tu as ........... secondes pour faire un max de doublés");
         console.log('Dé N°2 présent');
+        
      }else{
     const deVisible3 = document.querySelector('.leDeTrois');
     deVisible3.style.display = 'block';
@@ -108,11 +109,12 @@ const afficherResultatHTML = function () {
      }
      if(!localStorage.getItem('prenomA')){
         //alert("Veuillez saisir un joueur valide !")
-        $("#pseudoManque").text("verrifiez votre pseudo !").css({'backgroundColor':'brown', 'top':'0px'});
+        $("#pseudoManque").text("Vous devez saisir un nom pour jouer!  Vous allez etre rediriger...").css({'backgroundColor':'brown', 'top':'0px'});
 
         setTimeout(function(){
-        location.href="reglage.html";
-        }, 2000);
+        location.href="ChoixJoueurs.html";
+        }, 4000);
+
      }      
     const resultat = lancerDe();
     const resultatTexte = deTexte[resultat.toString()];
@@ -162,10 +164,117 @@ const afficherResultatHTML = function () {
     
         if (resultat === resultatBis) {
             winerMsg.style.display = 'block';
-            deBis.style.backgroundColor = 'red';
-            de.style.backgroundColor = 'red';
+            deBis.style.backgroundColor = 'blue';
+            de.style.backgroundColor = 'blue';
         } 
     }
+/**************************************************** */
+if (localStorage.getItem('DeNumero2')){
+const winMsg2 = function (resultat, resultatTrois) {
+    const winerMsg = document.getElementById('winMessage');
+    const de = document.querySelector('.leDe');
+    const deTrois = document.querySelector('.leDeTrois');
+        if (resultat === resultatTrois) {
+            winerMsg.style.display = 'none';
+            deTrois.style.backgroundColor = 'white';
+            de.style.backgroundColor = 'white';
+        } 
+    }
+    /*
+}else{
+    const winMsg2 = function (resultat, resultatTrois) {
+        const winerMsg = document.getElementById('winMessage');
+        const de = document.querySelector('.leDe');
+        const deTrois = document.querySelector('.leDeTrois');
+            if (resultat === resultatTrois) {
+                winerMsg.style.display = 'block';
+                deTrois.style.backgroundColor = 'green';
+                de.style.backgroundColor = 'green';
+            } 
+        }
+        */
+}
+
+    /**************************************************** */
+    if (localStorage.getItem('DeNumero3')){
+const winMsg3 = function (resultatBis, resultatTrois) {
+    const winerMsg = document.getElementById('winMessage');
+    const deBis = document.querySelector('.leDeBis');
+    const deTrois = document.querySelector('.leDeTrois');
+        if (resultatBis === resultatTrois) {
+            winerMsg.style.display = 'block';
+            deBis.style.backgroundColor = 'orange';
+            deTrois.style.backgroundColor = 'orange';
+        } 
+    }
+}
+
+  if (resultat === resultatBis) {
+        winMsg1(resultat, resultatBis);
+    }
+    if (resultat === resultatTrois) {
+        winMsg2(resultat, resultatTrois);
+    }
+
+    if (resultatBis === resultatTrois) {
+        winMsg3(resultatBis, resultatTrois);
+    }
+}
+
+
+
+// Fonction pour afficher le résultat en HTMlocation.reload();L
+const deuxDesHTML = function () {
+    // Rendre tous les dés invisibles au début
+    rendreDesInvisibles();
+    rendreDesBis_Invisibles();
+    rendreDesTrois_Invisibles();
+
+    rendreTitreInvisibles();
+    rendreTripleWinInvisible();
+
+    rendreMessageInvisiblesBis();
+    rendreMessageInvisiblesTrois();
+    
+    const deVisible1 = document.querySelector('.leDe');
+    deVisible1.style.display = 'block';
+    deVisible1.style.backgroundColor = 'white ';
+
+    const deVisible2 = document.querySelector('.leDeBis');
+    deVisible2.style.display = 'block';
+    deVisible2.style.backgroundColor = 'white ';
+
+    const deVisible3 = document.querySelector('.leDeTrois');
+    deVisible3.style.display = 'none';
+    //deVisible3.style.backgroundColor = 'white ';
+
+    const resultat = lancerDe();
+    const resultatTexte = deTexte[resultat.toString()];
+
+    // Afficher le résultat
+    const resultatDiv = document.getElementById('resultat');
+    resultatDiv.textContent = ` ${resultat} (${resultatTexte})`;
+    resultatDiv.style.color = 'white';
+    resultatDiv.style.fontSize = '2rem';
+
+    // Afficher le dé correspondant au résultat
+    const pointsDeVisible = document.querySelector('.leDe .leDeWrap .de' + resultat);
+    pointsDeVisible.style.display = 'block';
+
+    //----------------------------- DES DEUX ----------------------------------------//
+    const resultatBis = lancerDe();
+    const resultatTexteBis = deTexte[resultatBis.toString()];
+
+    // Afficher le résultat
+    const resultatDivBis = document.getElementById('resultatBis');
+    resultatDivBis.textContent = ` ${resultatBis} (${resultatTexteBis})`;
+    resultatDivBis.style.color = 'white';
+    resultatDivBis.style.fontSize = '2rem';
+
+    // Afficher le dé correspondant au résultat
+    const pointsDeVisibleBis = document.querySelector('.leDeBis .leDeBisWrap .deBis' + resultatBis);
+    pointsDeVisibleBis.style.display = 'block';
+
 /**************************************************** */
 const winMsg2 = function (resultat, resultatTrois) {
     const winerMsg = document.getElementById('winMessage');
@@ -203,97 +312,6 @@ const winMsg3 = function (resultatBis, resultatTrois) {
     }
 }
 
-
-/*
-// Fonction pour afficher le résultat en HTMlocation.reload();L
-const deuxDesHTML = function () {
-    // Rendre tous les dés invisibles au début
-    rendreDesInvisibles();
-    rendreDesBis_Invisibles();
-    rendreDesTrois_Invisibles();
-
-    rendreTitreInvisibles();
-    rendreTripleWinInvisible();
-
-    rendreMessageInvisiblesBis();
-    rendreMessageInvisiblesTrois();
-    
-    const deVisible1 = document.querySelector('.leDe');
-    deVisible1.style.display = 'block';
-    deVisible1.style.backgroundColor = 'white ';
-
-    const deVisible2 = document.querySelector('.leDeBis');
-    deVisible2.style.display = 'block';
-    deVisible2.style.backgroundColor = 'white ';
-
-    const deVisible3 = document.querySelector('.leDeTrois');
-    deVisible3.style.display = 'block';
-    deVisible3.style.backgroundColor = 'white ';
-
-    const resultat = lancerDe();
-    const resultatTexte = deTexte[resultat.toString()];
-
-    // Afficher le résultat
-    const resultatDiv = document.getElementById('resultat');
-    resultatDiv.textContent = ` ${resultat} (${resultatTexte})`;
-    resultatDiv.style.color = 'white';
-    resultatDiv.style.fontSize = '2rem';
-
-    // Afficher le dé correspondant au résultat
-    const pointsDeVisible = document.querySelector('.leDe .leDeWrap .de' + resultat);
-    pointsDeVisible.style.display = 'block';
-
-    //----------------------------- DES DEUX ----------------------------------------//
-    const resultatBis = lancerDe();
-    const resultatTexteBis = deTexte[resultatBis.toString()];
-
-    // Afficher le résultat
-    const resultatDivBis = document.getElementById('resultatBis');
-    resultatDivBis.textContent = ` ${resultatBis} (${resultatTexteBis})`;
-    resultatDivBis.style.color = 'white';
-    resultatDivBis.style.fontSize = '2rem';
-
-    // Afficher le dé correspondant au résultat
-    const pointsDeVisibleBis = document.querySelector('.leDeBis .leDeBisWrap .deBis' + resultatBis);
-    pointsDeVisibleBis.style.display = 'block';
-
-/**************************************************** *
-const winMsg2 = function (resultat, resultatTrois) {
-    const winerMsg = document.getElementById('winMessage');
-    const de = document.querySelector('.leDe');
-    const deTrois = document.querySelector('.leDeTrois');
-        if (resultat === resultatTrois) {
-            winerMsg.style.display = 'block';
-            deTrois.style.backgroundColor = 'red';
-            de.style.backgroundColor = 'red';
-        } 
-    }
-
-    /**************************************************** *
-const winMsg3 = function (resultatBis, resultatTrois) {
-    const winerMsg = document.getElementById('winMessage');
-    const deBis = document.querySelector('.leDe');
-    const deTrois = document.querySelector('.leDeTrois');
-        if (resultatBis === resultatTrois) {
-            winerMsg.style.display = 'block';
-            deBis.style.backgroundColor = 'red';
-            deTrois.style.backgroundColor = 'red';
-        } 
-    }
-
-
-  if (resultat === resultatBis) {
-        winMsg1(resultat, resultatBis);
-    }
-    if (resultat === resultatTrois) {
-        winMsg2(resultat, resultatTrois);
-    }
-
-    if (resultatBis === resultatTrois) {
-        winMsg3(resultatBis, resultatTrois);
-    }
-}
-*/
 /************************************************************* */
 
 const resetHTML = function () {

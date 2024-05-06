@@ -75,6 +75,8 @@ body {
   border: none;
   display: block;
   color: white;
+  font-size: 4rem;
+  padding: 5px 0px;
   z-index: 1000;
 }
 

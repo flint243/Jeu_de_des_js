@@ -5,7 +5,7 @@ class ReglageClass {
     // Modifiez le style du bouton pour le rendre visible
     btn.style.display = 'none'; // ou 'inline-block' selon votre mise en page
 
-    // click dé n°1
+    // click dé n°2
     const choix1 = document.getElementById('btnChoixDe2');
     choix1.addEventListener('click', this.rendreDeN3_Invisible.bind(this));
 
@@ -17,6 +17,24 @@ class ReglageClass {
       const resultatDivTrois = document.getElementById('resultatTrois');
       resultatDivTrois.style.display = 'none';
 
+      winMsg2() = false;
+
+      const winMsg2 = function (resultat, resultatTrois) {
+        const winerMsg = document.getElementById('winMessage');
+        const de = document.querySelector('.leDe');
+        const deTrois = document.querySelector('.leDeTrodeTrois');
+    
+        if (resultat === resultatTrois) {
+            winerMsg.style.display = 'none';
+            deTrois.style.backgroundColor = 'white';
+            de.style.backgroundColor = 'white';
+        } 
+    }
+/*
+      if (resultat === resultatTrois) {
+        winMsg2(resultat, resultatTrois);
+    }
+*/
       $("#bandeauInfos").text(localStorage.DeNumero2);
       console.log('Dé N°2 présent');
     }
@@ -36,12 +54,13 @@ class ReglageClass {
     if (localStorage.getItem('DeNumero3')) {
       rendreDesTrois_Visibles();
 
+      /*
       const deVisible3 = document.querySelector('.leDeTrois');
       deVisible3.style.display = 'block';
 
       const resultatDivTrois = document.getElementById('resultatTrois');
       resultatDivTrois.style.display = 'block';
-
+*/
       //$("#bandeauInfos").text(localStorage.DeNumero3);
       console.log('Dé N°3 présent');
     }
