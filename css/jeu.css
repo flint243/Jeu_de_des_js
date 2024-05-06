@@ -82,13 +82,13 @@ body {
 
 .cadreDe {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   width: 60%;
-  height: 600px;
+  height: auto;
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  padding: 20px;
+  padding: 10px 10px 150px 10px;
   border-radius: 1rem;
   justify-content: center;
   background-color: rgba(7, 205, 139, 0.383);
