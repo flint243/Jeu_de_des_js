@@ -14,16 +14,17 @@ class NameBooking {
         cadreJoueurB.style.display = 'none'; 
 
         // click dé n°1
-        const choix1 = document.getElementById('btnChoixDe1');
-        choix1.addEventListener('click', this.afficherDe1HTML.bind(this));
+        const choix2 = document.getElementById('btnChoixDe2');
+        choix2.addEventListener('click', this.rendreDeN3_Invisible.bind(this));
 
         // click dé n°2
-        const choix2 = document.getElementById('btnChoixDe2');
-        choix2.addEventListener('click', this.afficherDe2HTML.bind(this));
+        //const choix3 = document.getElementById('btnChoixDe3');
+        //choix3.addEventListener('click', this.afficher3DesHTML.bind(this));
 
   
       this.checkFormNameA = false;
       this.checkFormNameB = false;
+
     }
   
     //------------ Sécuriser le formulaire ------------//
@@ -55,6 +56,25 @@ class NameBooking {
         this.storageInfosB(); // Appel de storageInfosB uniquement si le formulaire est rempli
       }
     }
+
+    // Fonction pour rendre le dé n°3 invisible
+rendreDeN3_Invisible(e) {
+  const desTrois = document.querySelectorAll('.leDeTrois .leDeTroisWrap div[class^="deTrois"]');
+  /*desTrois.forEach(deTrois => {
+      deTrois.style.display = 'none';*/
+      if(this.deTrois = true){
+        e.preventDefault();
+        this.choix2 = true;
+      this.storageInfosDeN3();
+      }
+}
+
+storageInfosDeN3(){
+  if(this.choix2){
+    localStorage.setItem('DeNumero2', $('#btnChoixDe2'));
+    console.log('dé n°2 stocké');
+  }
+}
   
     //------------ Stockage des infos dans le localStorage ------------//
     storageInfosA() {

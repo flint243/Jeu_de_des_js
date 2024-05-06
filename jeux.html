@@ -5,17 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeux de 2 dés</title>
     <link rel="stylesheet" href="css/jeu.css">
+
+    <script src="js/jquery.min.js"></script>
 </head>
 <body>
     <div id="content">
         <div id="retour"><a href="index.html">Accueil</a> </div>
-        <div id="cadreDecompte">
-           <p>Tu n'as que quelques secondes pour faire le max de triplés combo!</p> 
-        <div class="decompte">Décompte: 60 secondes</div>
-    </div>
+        <div id="bandeauInfos">
+            <div class="decompte">Décompte</div>
+        </div>
     
     <div class="cadreDe">
                 <div id="titreJeu">Le krabs gagnant de Limay !</div>
+                <h1 id="pseudoManque"></h1>
         <div id="cadreDe1">
             <div class="resExt">
                 <div id="resultat"></div>
@@ -117,7 +119,7 @@
             <div id="resultatTrois"></div>
         </div>
 
-        <div class="leDeTrois">
+        <div class="leDeTrois" id="leTroisiemeDe">
             <div class="leDeTroisWrap">
                 <div class="deTrois1"></div>
 
@@ -158,9 +160,11 @@
             </div>
         </div>
     </div>
-</div>
+</div>        
+        <button id="btReglage"><a href="reglage.html">Réglage</a></button>
         <button id="btChance">Tente ta chance !</button>
         <button id="btRecommence">Recommence le jeu !</button>
+        <button id="btChangerJoueur"><a href="ChoixJoueurs.html">Changer de joueur</a></button>
         
     </div>
 </div>

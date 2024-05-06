@@ -63,7 +63,12 @@ const rendreTripleWinInvisible = function () {
 }
 
 
-
+//----------- concerver les ID dans le formulaire -----------------------//
+   if (localStorage.getItem('prenomA')){
+    $('#joueurA').val(localStorage.getItem('prenomA'));
+    $("#bandeauInfos").text(" Bonjour" +" " +localStorage.prenomA+ " " +"tu as ........... secondes pour faire un max de doublés");
+    console.log('Joueur A présent');
+ }
 
 // Fonction pour afficher le résultat en HTMlocation.reload();L
 const afficherResultatHTML = function () {
@@ -86,10 +91,29 @@ const afficherResultatHTML = function () {
     deVisible2.style.display = 'block';
     deVisible2.style.backgroundColor = 'white ';
 
+    if (localStorage.getItem('DeNumero2')){
+        rendreDesTrois_Invisibles();
+    
+        const deVisible3 = document.querySelector('.leDeTrois');
+        deVisible3.style.display = 'none';
+        const resultatDivTrois = document.getElementById('resultatTrois');
+        resultatDivTrois.style.display = 'none';
+    
+        $("#bandeauInfos").text(" Bonjour" +" " +localStorage.prenomA+ " " +"tu as ........... secondes pour faire un max de doublés");
+        console.log('Dé N°2 présent');
+     }else{
     const deVisible3 = document.querySelector('.leDeTrois');
     deVisible3.style.display = 'block';
     deVisible3.style.backgroundColor = 'white ';
+     }
+     if(!localStorage.getItem('prenomA')){
+        //alert("Veuillez saisir un joueur valide !")
+        $("#pseudoManque").text("verrifiez votre pseudo !").css({'backgroundColor':'brown', 'top':'0px'});
 
+        setTimeout(function(){
+        location.href="reglage.html";
+        }, 2000);
+     }      
     const resultat = lancerDe();
     const resultatTexte = deTexte[resultat.toString()];
 
@@ -274,6 +298,18 @@ const winMsg3 = function (resultatBis, resultatTrois) {
 
 const resetHTML = function () {
     location.reload();
+    //localStorage.clear();
+}
+
+const changeJoueurHTML = function () {
+    location.reload();
+    localStorage.clear();
+}
+
+const reglageHTML = function () {
+    location.reload();
+    localStorage.getItem('DeNumero2').clear();
+    localStorage.getItem('DeNumero3').clear();
 }
 
 // Ajouter un gestionnaire d'événement pour le bouton
@@ -287,3 +323,9 @@ bouton3Des.addEventListener('click', deuxDesHTML);
 */
 const bouton2 = document.getElementById('btRecommence');
 bouton2.addEventListener('click', resetHTML);
+
+const btnChangeJoueur = document.getElementById('btRecommence');
+btnChangeJoueur.addEventListener('click', changeJoueurHTML);
+
+const btnReglage = document.getElementById('btReglage');
+btnReglage.addEventListener('click', reglageHTML);
