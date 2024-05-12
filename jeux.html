@@ -1,173 +1,205 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jeux de 2 dés</title>
-    <link rel="stylesheet" href="css/jeu.css">
+    <link rel="stylesheet" href="css/jeu.css" />
 
     <script src="js/jquery.min.js"></script>
-</head>
-<body>
-    <div id="content">
-        <div id="retour"><a href="index.html">Accueil</a> </div>
+  </head>
+
+  <body>
+    <main id="main">
+      <div id="hautMain">
+        <div id="accueilGroup">
+            <button id="btRetour"><a href="index.html">Accueil</a></button>
+        </div>
+
         <div id="bandeauInfos">
-            <div class="decompte">Décompte</div>
+          <div id="bandeauInfosInt"></div>
+          <div id="decompte"></div>
+          <div id="tuRecommences"></div>
         </div>
-    
-    <div class="cadreDe">
-                <div id="titreJeu">Le krabs gagnant de Limay !</div>
-                <div id="pseudoManque"></div>
-        <div id="cadreDe1">
+      </div>
+
+      <div id="msgGroup">
+        <h1 id="winMessage">Gagné !</h1>
+        <h1 id="tripleWinMessage">Triple win !</h1>
+      </div>
+
+      <div id="centerMain">
+      <div id="recommenceGroup">
+        <button id="btRecommence" class="btnG">
+          Recommence le jeu !
+        </button>
+      </div>
+
+      
+
+        <div class="cadreDe">
+          <button id="btRetour2"><a href="ChoixJoueurs.html">Selection joueur</a></button>
+          <div id="pseudoManque"></div>
+          <div id="time_out"></div>
+          <div id="titreJeu">Le krabs gagnant de Limay !</div>
+          <div id="cadreDe1" class="cadre">
             <div class="resExt">
-                <div id="resultat"></div>
+              <div id="resultat"></div>
             </div>
-        
+
             <div class="leDe">
-                <div class="leDeWrap">
-                    <div class="de1"></div>
+              <div class="leDeWrap">
+                <div class="de1"></div>
 
-                    <div class="de2">
-                        <div class="pointHaut2"></div>
-                        <div class="pointBas2"></div>
-                    </div>
-
-                    <div class="de3">
-                        <div class="pointHaut3"></div>
-                        <div class="pointCentre3"></div>
-                        <div class="pointBas3"></div>
-                    </div>
-
-                    <div class="de4">
-                        <div class="pointHautG4"></div>
-                        <div class="pointBasG4"></div>
-                        <div class="pointHautD4"></div>
-                        <div class="pointBasD4"></div>
-                    </div>
-
-                    <div class="de5">
-                        <div class="pointHautG5"></div>
-                        <div class="pointCentre5"></div>
-                        <div class="pointHautD5"></div>
-                        <div class="pointBasG5"></div>
-                        <div class="pointBasD5"></div>
-                    </div>
-
-                    <div class="de6">
-                        <div class="pointHautG6"></div>
-                        <div class="pointCentreG6"></div>
-                        <div class="pointBasG6"></div>
-                        <div class="pointHautD6"></div>
-                        <div class="pointCentreD6"></div>
-                        <div class="pointBasD6"></div>
-                    </div>
+                <div class="de2">
+                  <div class="pointHaut2"></div>
+                  <div class="pointBas2"></div>
                 </div>
-            </div>
-        </div>
-                <h1 id="winMessage">Gagné !</h1><h1 id="tripleWinMessage">Triple win !</h1>
 
-        <div id="cadreDe2">
+                <div class="de3">
+                  <div class="pointHaut3"></div>
+                  <div class="pointCentre3"></div>
+                  <div class="pointBas3"></div>
+                </div>
+
+                <div class="de4">
+                  <div class="pointHautG4"></div>
+                  <div class="pointBasG4"></div>
+                  <div class="pointHautD4"></div>
+                  <div class="pointBasD4"></div>
+                </div>
+
+                <div class="de5">
+                  <div class="pointHautG5"></div>
+                  <div class="pointCentre5"></div>
+                  <div class="pointHautD5"></div>
+                  <div class="pointBasG5"></div>
+                  <div class="pointBasD5"></div>
+                </div>
+
+                <div class="de6">
+                  <div class="pointHautG6"></div>
+                  <div class="pointCentreG6"></div>
+                  <div class="pointBasG6"></div>
+                  <div class="pointHautD6"></div>
+                  <div class="pointCentreD6"></div>
+                  <div class="pointBasD6"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="cadreDe2" class="cadre">
             <div class="resExtBis">
-                <div id="resultatBis"></div>
+              <div id="resultatBis"></div>
             </div>
-    
+
             <div class="leDeBis">
-                <div class="leDeBisWrap">
-                    <div class="deBis1"></div>
-    
-                    <div class="deBis2">
-                        <div class="pointHaut2Bis"></div>
-                        <div class="pointBas2Bis"></div>
-                    </div>
-    
-                    <div class="deBis3">
-                        <div class="pointHaut3Bis"></div>
-                        <div class="pointCentre3Bis"></div>
-                        <div class="pointBas3Bis"></div>
-                    </div>
-    
-                    <div class="deBis4">
-                        <div class="pointHautG4Bis"></div>
-                        <div class="pointBasG4Bis"></div>
-                        <div class="pointHautD4Bis"></div>
-                        <div class="pointBasD4Bis"></div>
-                    </div>
-    
-                    <div class="deBis5">
-                        <div class="pointHautG5Bis"></div>
-                        <div class="pointCentre5Bis"></div>
-                        <div class="pointHautD5Bis"></div>
-                        <div class="pointBasG5Bis"></div>
-                        <div class="pointBasD5Bis"></div>
-                    </div>
-    
-                    <div class="deBis6">
-                        <div class="pointHautG6Bis"></div>
-                        <div class="pointCentreG6Bis"></div>
-                        <div class="pointBasG6Bis"></div>
-                        <div class="pointHautD6Bis"></div>
-                        <div class="pointCentreD6Bis"></div>
-                        <div class="pointBasD6Bis"></div>
-                    </div>
+              <div class="leDeBisWrap">
+                <div class="deBis1"></div>
+
+                <div class="deBis2">
+                  <div class="pointHaut2Bis"></div>
+                  <div class="pointBas2Bis"></div>
                 </div>
+
+                <div class="deBis3">
+                  <div class="pointHaut3Bis"></div>
+                  <div class="pointCentre3Bis"></div>
+                  <div class="pointBas3Bis"></div>
+                </div>
+
+                <div class="deBis4">
+                  <div class="pointHautG4Bis"></div>
+                  <div class="pointBasG4Bis"></div>
+                  <div class="pointHautD4Bis"></div>
+                  <div class="pointBasD4Bis"></div>
+                </div>
+
+                <div class="deBis5">
+                  <div class="pointHautG5Bis"></div>
+                  <div class="pointCentre5Bis"></div>
+                  <div class="pointHautD5Bis"></div>
+                  <div class="pointBasG5Bis"></div>
+                  <div class="pointBasD5Bis"></div>
+                </div>
+
+                <div class="deBis6">
+                  <div class="pointHautG6Bis"></div>
+                  <div class="pointCentreG6Bis"></div>
+                  <div class="pointBasG6Bis"></div>
+                  <div class="pointHautD6Bis"></div>
+                  <div class="pointCentreD6Bis"></div>
+                  <div class="pointBasD6Bis"></div>
+                </div>
+              </div>
             </div>
-        </div>
-    
+          </div>
 
-    <div id="cadreDeTrois">
-        <div class="resExtTrois">
-            <div id="resultatTrois"></div>
-        </div>
+          <div id="cadreDeTrois" class="cadre">
+            <div class="resExtTrois">
+              <div id="resultatTrois"></div>
+            </div>
 
-        <div class="leDeTrois" id="leTroisiemeDe">
-            <div class="leDeTroisWrap">
+            <div class="leDeTrois" id="leTroisiemeDe">
+              <div class="leDeTroisWrap">
                 <div class="deTrois1"></div>
 
                 <div class="deTrois2">
-                    <div class="pointHaut2Trois"></div>
-                    <div class="pointBas2Trois"></div>
+                  <div class="pointHaut2Trois"></div>
+                  <div class="pointBas2Trois"></div>
                 </div>
 
                 <div class="deTrois3">
-                    <div class="pointHaut3Trois"></div>
-                    <div class="pointCentre3Trois"></div>
-                    <div class="pointBas3Trois"></div>
+                  <div class="pointHaut3Trois"></div>
+                  <div class="pointCentre3Trois"></div>
+                  <div class="pointBas3Trois"></div>
                 </div>
 
                 <div class="deTrois4">
-                    <div class="pointHautG4Trois"></div>
-                    <div class="pointBasG4Trois"></div>
-                    <div class="pointHautD4Trois"></div>
-                    <div class="pointBasD4Trois"></div>
+                  <div class="pointHautG4Trois"></div>
+                  <div class="pointBasG4Trois"></div>
+                  <div class="pointHautD4Trois"></div>
+                  <div class="pointBasD4Trois"></div>
                 </div>
 
                 <div class="deTrois5">
-                    <div class="pointHautG5Trois"></div>
-                    <div class="pointCentre5Trois"></div>
-                    <div class="pointHautD5Trois"></div>
-                    <div class="pointBasG5Trois"></div>
-                    <div class="pointBasD5Trois"></div>
+                  <div class="pointHautG5Trois"></div>
+                  <div class="pointCentre5Trois"></div>
+                  <div class="pointHautD5Trois"></div>
+                  <div class="pointBasG5Trois"></div>
+                  <div class="pointBasD5Trois"></div>
                 </div>
 
                 <div class="deTrois6">
-                    <div class="pointHautG6Trois"></div>
-                    <div class="pointCentreG6Trois"></div>
-                    <div class="pointBasG6Trois"></div>
-                    <div class="pointHautD6Trois"></div>
-                    <div class="pointCentreD6Trois"></div>
-                    <div class="pointBasD6Trois"></div>
+                  <div class="pointHautG6Trois"></div>
+                  <div class="pointCentreG6Trois"></div>
+                  <div class="pointBasG6Trois"></div>
+                  <div class="pointHautD6Trois"></div>
+                  <div class="pointCentreD6Trois"></div>
+                  <div class="pointBasD6Trois"></div>
                 </div>
+              </div>
             </div>
+          </div>
+          
         </div>
-    </div>
-</div>        
-        <button id="btReglage"><a href="reglage.html">Réglage</a></button>
-        <button id="btChance">Tente ta chance !</button>
-        <button id="btRecommence">Recommence le jeu !</button>
-        <button id="btChangerJoueur"><a href="ChoixJoueurs.html">Changer de joueur</a></button>
-        
-    </div>
-</div>
-    <script src="js/script.js"></script>
-</body>
+
+        <div id="boutonsGroup">
+          <button id="btReglage" class="btnG">
+            <a href="reglage.html">Réglage</a>
+          </button>
+          <button id="btChangerJoueur" class="btnG">
+            <a href="ChoixJoueurs.html">Changer de joueur</a>
+          </button>
+        </div>
+
+        <div id="chanceExt">
+            <button id="btFin">Fin de la partie !</button>
+            <button id="btChance">Tente ta chance !</button>
+          </div>
+      </div>
+    </main>
+    <script src="js/script2D.js"></script>
+  </body>
 </html>

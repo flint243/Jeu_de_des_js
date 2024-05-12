@@ -70,11 +70,9 @@ const winMsg = function (deVisible, deVisibleBis) {
 
     if (deVisibleBis === deVisible) {
         winerMsg.style.display = 'block';
-        deBis.style.backgroundColor = 'blue';
+        deBis.style.backgroundColor = 'red';
         de.style.backgroundColor = 'red';
-    } else {
-        deBis.style.backgroundColor = 'green';
-    }
+    } 
 }
 
 /*
@@ -139,9 +137,11 @@ const afficherResultatHTML = function () {
 
     const deVisible2 = document.querySelector('.leDeBis');
     deVisible2.style.display = 'block';
+    deVisible2.style.backgroundColor = 'white ';
 
     const deVisible3 = document.querySelector('.leDeTrois');
     deVisible3.style.display = 'block';
+    deVisible3.style.backgroundColor = 'white ';
 
     const resultat = lancerDe();
     const resultatTexte = deTexte[resultat.toString()];

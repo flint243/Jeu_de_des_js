@@ -6,86 +6,32 @@ class ReglageClass {
     btn.style.display = 'none'; // ou 'inline-block' selon votre mise en page
 
     // click dé n°2
-    const choix1 = document.getElementById('btnChoixDe2');
-    choix1.addEventListener('click', this.rendreDeN3_Invisible.bind(this));
+    const btnD2 = document.getElementById('btnChoixDe2');
+    btnD2.addEventListener('click', this.game2D.bind(this));
 
     if (localStorage.getItem('DeNumero2')) {
-      rendreDesTrois_Invisibles();
-
-      const deVisible3 = document.querySelector('.leDeTrois');
-      deVisible3.style.display = 'none';
-      const resultatDivTrois = document.getElementById('resultatTrois');
-      resultatDivTrois.style.display = 'none';
-
-      winMsg2() = false;
-
-      const winMsg2 = function (resultat, resultatTrois) {
-        const winerMsg = document.getElementById('winMessage');
-        const de = document.querySelector('.leDe');
-        const deTrois = document.querySelector('.leDeTrodeTrois');
-    
-        if (resultat === resultatTrois) {
-            winerMsg.style.display = 'none';
-            deTrois.style.backgroundColor = 'white';
-            de.style.backgroundColor = 'white';
-        } 
-    }
-/*
-      if (resultat === resultatTrois) {
-        winMsg2(resultat, resultatTrois);
-    }
-*/
-      $("#bandeauInfos").text(localStorage.DeNumero2);
-      console.log('Dé N°2 présent');
-    }
-
-    //-------------- STOCKAGE PRENOM A ---------------------
-    if (localStorage.getItem('prenomA')) {
-      $('#joueurA').val(localStorage.getItem('prenomA'));
-      $("#bandeauInfos").text(localStorage.prenomA).css({ 'backgroundColor': 'white', 'color': 'red' });
-      console.log('Joueur A présent');
+      this.game2DVisible();
     }
 
     //-------------------------------------------------------------//
      // click dé 3
-     const choix2 = document.getElementById('btnChoixDe3');
-     choix2.addEventListener('click', this.rendreDeN3_Visible.bind(this));
+     const btnD3 = document.getElementById('btnChoixDe3');
+     btnD3.addEventListener('click', this.game3D.bind(this));
      
     if (localStorage.getItem('DeNumero3')) {
-      rendreDesTrois_Visibles();
-
-      /*
-      const deVisible3 = document.querySelector('.leDeTrois');
-      deVisible3.style.display = 'block';
-
-      const resultatDivTrois = document.getElementById('resultatTrois');
-      resultatDivTrois.style.display = 'block';
-*/
-      //$("#bandeauInfos").text(localStorage.DeNumero3);
-      console.log('Dé N°3 présent');
+      game3DVisible();
     }
-
-    if (localStorage.getItem('prenomA')) {
-      $('#joueurA').val(localStorage.getItem('prenomA'));
-      $("#bandeauInfos").text(localStorage.prenomA).css({ 'backgroundColor': 'white', 'color': 'red' });
-      console.log('Joueur A présent');
-    }
-
   }
 
-
+ /************************************* DEUX DES  ******************************/
   // Fonction pour rendre le dé n°3 invisible
-  rendreDeN3_Invisible(e) {
-    const desTrois = document.querySelectorAll('.leDeTrois .leDeTroisWrap div[class^="deTrois"]');
-     if (this.deTrois = true) {
-      e.preventDefault();
-      this.choix1 = true;
+  game2D() {     
+      this.btnD2 = true;
       this.storageInfosDeN2();
-    }
   }
 
   storageInfosDeN2() {
-    if (this.choix1) {
+    if (this.btnD2) {
       localStorage.setItem('DeNumero2', $('#btnChoixDe2'));
 
       let btn = document.getElementById('makeChoice');
@@ -95,19 +41,14 @@ class ReglageClass {
   }
 
   /************************************* TROIS DES  ******************************/
-
   // Fonction pour rendre le dé n°3 visible
-  rendreDeN3_Visible(e) {
-    const desBis = document.querySelectorAll('.leDeBis .leDeBisWrap div[class^="deBis"]');
-    if (this.deBis = true) {
-      e.preventDefault();
-      this.choix2 = true;
+  game3D() {
+      this.btnD3 = true;
       this.storageInfosDeN3();
-    }
   }
 
   storageInfosDeN3() {
-    if (this.choix2) {
+    if (this.btnD3) {
       localStorage.setItem('DeNumero3', $('#btnChoixDe3'));
 
       let btn = document.getElementById('makeChoice');
@@ -115,15 +56,5 @@ class ReglageClass {
       console.log('dé n°3 stocké');
     }
   }
-
-  /*
-  if(storageInfosDeN2){
-    localStorage.clear();
-  }else
-  if(storageInfosDeN3){
-    localStorage.clear();
-  }
-*/
 }
-
 new ReglageClass();

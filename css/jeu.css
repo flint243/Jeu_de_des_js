@@ -1,64 +1,105 @@
-body {
-  background-color: green;
-  padding-top: 20px;
+@font-face{
+  font-family:'boomster';
+  font-style: normal;
+  src: local("boomster"),
+        url('/boomster_graffiti/BOOMSTER.otf') format('otf'),
 }
-#content {
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url('/img/NY3.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+}
+main {
   text-align: center;
+}
+#hautMain{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px;
+}
+#tuRecommences{
+  position: absolute;
+  margin-top: 5%;
+  left: 30%;
+  font-size: 2rem;
+  color: red;
+}
+#centerMain{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  position: relative;
+  top: 150px;
+}
+#recommenceGroup{
+  width: 20%;
 }
 
 #bandeauInfos{
-  width: 40%;
-  height: 100px;
+  width: auto;
+  height: auto;
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  border: 1px solid red;
+  border-radius: 10px;
+  padding: 20px 30px;
+  font-size: 2rem;
+  color: beige;
 }
 
-#btRecommence {
-  position: absolute;
-  right: 10px;
-  border-radius: 5px;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
+#msgGroup{
+  width: 100%;
+  position: relative;
+  text-align: center;
 }
-
 #winMessage {
   width: 20%;
   height: auto;
   position: absolute;
-  top: 110px;
-  margin-left:0%;
+  top: 100px;
+  margin-left: 45%;
+  margin-right: auto;
   font-size: 3rem;
   background-color: white;
   border-radius: 5px;
   border: none;
-  padding: 5px;
+  padding: 2px 10px;
   color: orange;
   display: none;
 }
+
 #tripleWinMessage {
-  width: 40%;
+  width: 20%;
   height: auto;
   position: absolute;
-  top: 110px;
-  margin-left:0%;
-  font-size: 3rem;
+  top: 90px;
+  margin-left: 45%;
+  margin-right: auto;
   background-color: white;
   border-radius: 5px;
   border: none;
   padding: 5px;
   color: red;
+  font-size: 3rem;
   display: none;
 }
 #titreJeu {
   width: auto;
   height: auto;
   position: absolute;
-  top: 210px;
+  top: 110px;
   margin-left: 0%;
-  font-size: 5em;
+  font-family:"boomster";
+  font-size: 5rem;
   background-color: rgba(36, 102, 60, 0.609);
   border-radius: 5px;
   border: none;
@@ -69,33 +110,55 @@ body {
 
 #pseudoManque {
   width: 100%;
-  height: 100%;
+  height: auto;
   position: absolute;
+  text-align: center;
   border-radius: 5px;
   border: none;
-  display: block;
-  color: white;
   font-size: 4rem;
-  padding: 5px 0px;
-  z-index: 1000;
+  padding: 20px 0px;
 }
 
+#time_out {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 40px;
+  text-align: center;
+  color: red;
+  border-radius: 5px;
+  border: none;
+  font-size: 4rem;
+  padding: 20px 0px;
+  z-index: 100;
+}
+
+.cadreDe{
+  background-image: url(/img/ny1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .cadreDe {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
   width: 60%;
   height: auto;
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  padding: 10px 10px 150px 10px;
+  margin-bottom: 30px;
+  padding: 0px 10px 110px 10px;
   border-radius: 1rem;
-  justify-content: center;
-  background-color: rgba(7, 205, 139, 0.383);
+  justify-content: space-around;
+  background-color: rgba(7, 205, 139, 0.704);
+}
+
+.cadre{
+  margin-left: 20px;
 }
 #cadreDe1 {
   width: auto;
-  padding: 20px;
+  height: 100%;
 }
 
 .leDe {
@@ -106,6 +169,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   top: 40%;
+  border: 1px solid grey;
   display: none;
 }
 
@@ -343,7 +407,7 @@ body {
 /****************************** LANCER DE N2 **********************************/
 #cadreDe2 {
   width: auto;
-  padding: 20px;
+  height: 100%;
 }
 .leDeBis {
   width: 200px;
@@ -353,6 +417,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   top: 40%;
+  border: 1px solid grey;
   display: none;
 }
 
@@ -592,7 +657,7 @@ body {
 /****************************** LANCER DE N3 **********************************/
 #cadreDeTrois {
   width: auto;
-  padding: 20px;
+  height: 100%;
 }
 .leDeTrois {
   width: 200px;
@@ -602,6 +667,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   top: 40%;
+  border: 1px solid grey;
   /*display: none;*/
 }
 
@@ -846,13 +912,239 @@ body {
 }
 
 /****************************** BOUTTON **********************************/
-button#btChance {
-  width: 300px;
+.btnG{
+  margin-top: 20px;
+}
+#boutonsGroup{
+  display: flex;
+  flex-direction: column;
   position: relative;
-  top: 50px;
+  right: 0px;
+  padding: 10px 20px;
+  justify-content: space-around;
+}
+
+#btRetour {
+  width: auto;
+  position: relative;
   padding: 20px;
   border-radius: 5px;
   border: none;
   font-size: large;
-  cursor: pointer;
+  box-shadow:1px 3px #50514f;
+  transition:.3s;
+}
+#btRetour:hover, #btRetour:active  {
+  outline:none;
+  background-color:#50514f;
+   cursor: pointer;
+   transform:translateY(15px);
+}
+#btRetour2 {
+  width: auto;
+  position: relative;
+  padding: 20px;
+  border-radius: 5px;
+  border: none;
+  font-size: large;
+  box-shadow:1px 3px #50514f;
+  transition:.3s;
+  display: none;
+}
+#btRetour2:hover, #btRetour2:active  {
+  outline:none;
+  background-color:#50514f;
+   cursor: pointer;
+   transform:translateY(15px);
+}
+
+#btReglage {
+  width: auto;
+  position: relative;
+  padding: 20px;
+  border-radius: 5px;
+  border: none;
+  font-size: large;
+  box-shadow:1px 3px #50514f;
+  transition:.3s;
+}
+#btReglage:hover, #btReglage:active  {
+  outline:none;
+  background-color:#50514f;
+   cursor: pointer;
+   transform:translateY(15px);
+}
+
+
+#btRecommence {
+  width: auto;
+  position: relative;
+  padding: 20px;
+  border-radius: 5px;
+  border: none;
+  font-size: large;
+  align-self: flex-start;
+  box-shadow:1px 3px #50514f;
+  transition:.3s;
+}
+#btRecommence:hover, #btRecommence:active  {
+  outline:none;
+  background-color:#50514f;
+   cursor: pointer;
+   transform:translateY(15px);
+}
+#chanceExt{
+  width: 100%;
+  text-align: center;
+}
+#btFin {
+  width: auto;
+  position: absolute;
+  left: 45%;
+  padding: 20px;
+  border-radius: 5px;
+  border: none;
+  font-size: large;
+  color: white;
+  background-color: red;
+  box-shadow:1px 3px #50514f;
+  transition:.3s;
+  display: none;
+  z-index: 1010;
+}
+#btChance {
+  width: auto;
+  position: relative;
+  padding: 20px;
+  border-radius: 5px;
+  border: none;
+  font-size: large;
+  color: green;
+  box-shadow:1px 3px #50514f;
+  transition:.3s;
+  z-index: 1010;
+}
+button#btChance:hover, button#btChance:active  {
+  outline:none;
+  background-color:#50514f;
+   cursor: pointer;
+   transform:translateY(15px);
+}
+
+#btChangerJoueur {
+  width: auto;
+  position: relative;
+  padding: 20px;
+  border-radius: 5px;
+  border: none;
+  font-size: large;
+  box-shadow:1px 3px #50514f;
+  transition:.3s;
+}
+#btChangerJoueur:hover, #btChangerJoueur:active  {
+  outline:none;
+  background-color:#50514f;
+   cursor: pointer;
+   transform:translateY(15px);
+}
+
+
+
+
+
+/***************************** RESPONSIVE ********************************************/
+
+@media screen and (max-width: 768px){
+#resultat, #resultatBis, #resultatTrois{
+  display: none;
+}
+
+  #accueilGroup{
+    width: 100%;
+  }
+  #bandeauInfos{
+    width: auto;
+  }
+
+#centerMain{
+  justify-items: center;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  top: 0px;
+}
+
+.cadreDe{
+  flex-wrap: wrap;
+  width: 100%;
+}
+#cadreDe1{
+  height: auto;
+}
+.leDe{
+  top:0px
+}
+#cadreDe2{
+  height: auto;
+}
+.leDeBis{
+  top:0px
+}
+#cadreDeTrois{
+  height: auto;
+}
+.leDeTrois{
+  top:0px
+}
+#titreJeu{
+  font-size: 300%;
+}
+  #titreJeu{
+    top: 0px;
+    height: 100%;
+  }
+
+  #chanceExt{
+    width: auto;
+  }
+  #boutonsGroup {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    top: 40px;
+}
+
+#btChance {
+  position: absolute;
+  top: 75%;
+}
+}
+
+
+@media screen and (max-width: 425px){
+  #btRetour {
+    width: 100%;
+    padding: inherit;
+  }
+
+  #bandeauInfos{
+    width: 100%;
+    padding: inherit;
+  }
+
+
+  #recommenceGroup {
+    width: 100%;
+  }
+  #btRecommence {
+  padding: inherit;
+  }
+
+  #btChance {
+    top: 85%;
+left: 30%;
+}
+
+
+
+
 }
