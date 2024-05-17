@@ -10,19 +10,25 @@
   </head>
 
   <body>
+    <audio autoplay loop src="/sounds/audioSaloon/Saloon_02.mp3" class="audio3"></audio>
     <main id="main">
       <div id="hautMain">
-        <div id="accueilGroup">
-            <button id="btRetour"><a href="ChoixJoueurs.html">Séléction joueurs</a></button>
-        </div>
 
         <div id="bandeauInfos">
           <div id="bandeauInfosInt"></div>
           <div id="decompte"></div>
           <div id="tuRecommences"></div>
         </div>
+
+        <div id="scores">
+          <h1> Votre score est de </h1>
+        <div id="scorePrenomA" class="score"><span class="point"></span></div>
+        <div id="scorePrenomB" class="score"><span class="point"></span></div>
+      </div>
+  
       </div>
 
+      
       <div id="msgGroup">
         <h1 id="winMessage">Gagné !</h1>
         <h1 id="tripleWinMessage">Triple win !</h1>
@@ -30,6 +36,7 @@
 
       <div id="centerMain">
       <div id="recommenceGroup">
+        <button id="btRetour"><a href="ChoixJoueurs.html">Séléction joueurs</a></button>
         <button id="btRecommence" class="btnG">
           Recommence le jeu !
         </button>
@@ -41,7 +48,7 @@
           <button id="btRetour2"><a href="ChoixJoueurs.html">Selection joueur</a></button>
           <div id="pseudoManque"></div>
           <div id="time_out"></div>
-          <div id="titreJeu">Le krabs gagnant de Limay !</div>
+          <div id="titreJeu"> Le krabs gagnant !</div>
           <div id="cadreDe1" class="cadre">
             <div class="resExt">
               <div id="resultat"></div>
@@ -187,7 +194,7 @@
 
         <div id="boutonsGroup">
           <button id="btReglage" class="btnG">
-            <a href="reglage.html">Réglage</a>
+            <a href="reglage.html">Réglages</a>
           </button>
           <button id="btChangerJoueur" class="btnG">
             <a href="ChoixJoueurs.html">Changer de joueur</a>
@@ -200,6 +207,6 @@
           </div>
       </div>
     </main>
-    <script src="js/script2D.js"></script>
+    <script src="js/script2DBis.js"></script>
   </body>
 </html>

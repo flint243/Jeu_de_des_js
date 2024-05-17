@@ -66,7 +66,6 @@ if (localStorage.getItem('prenomA')) {
     $("#btRetour2").css({ 'display': 'block', 'height': '60px' })
     $("#pseudoManque").text("Vous devez saisir un nom pour jouer!").css({ 'backgroundColor': 'white', 'color': 'red', 'top': '0px', 'top': '35%', 'zIndex': '1000' });
     resultats2D_HTML() === false;
-
 }
 
 //-----------------------------------------   DEBUT LANCER DE DES  
@@ -118,7 +117,6 @@ const resultats2D_HTML = function () {
     const pointsDeVisibleBis = document.querySelector('.leDeBis .leDeBisWrap .deBis' + resultatBis);
     pointsDeVisibleBis.style.display = 'block';
 
-
     //----------------------------------------------------------------------
     if (localStorage.getItem('DeNumero3')) {
         console.log("dé 3 actif")
@@ -141,7 +139,6 @@ const resultats2D_HTML = function () {
         pointsDeVisibleTrois.style.display = 'block';
     }
 
-
     //----------------------------------------------------------------------
     const winMsg1 = function (resultat, resultatBis) {
         const messageDeWin = document.getElementById('winMessage');
@@ -153,22 +150,10 @@ const resultats2D_HTML = function () {
             de.style.backgroundColor = 'red';
             deBis.style.backgroundColor = 'red';
         }
-        
     }
     if (resultat === resultatBis) {
         winMsg1(resultat, resultatBis);
     }
-
-const score = function(){
-    let humanScore = 0;
-    console.log("Score joueur = "+ " " +humanScore)
-    
-    if(resultat && resultatBis === 1){
-        humanScore += 1
-    }else if(resultat && resultatBis === 2){
-        humanScore += 2
-    }
-}
 
     const winMsg2 = function (resultat, resultatTrois) {
         const messageDeWin = document.getElementById('winMessage');
@@ -181,7 +166,7 @@ const score = function(){
             deTrois.style.backgroundColor = 'green';
         }
     }
-    if (resultat == resultatTrois) {
+    if (resultat === resultatTrois) {
         winMsg2(resultat, resultatTrois);
     }
 
@@ -376,130 +361,6 @@ const diminuerTemps5 = function () {
     }
 }
 
-
-
-
-
-/***************************   JEU KRABS 2     JEU KRABS 2     JEU KRABS 2     JEU KRABS 2     JEU KRABS 2     JEU KRABS 2  **********************
-// Fonction pour afficher le résultat en HTMlocation.reload();L
-const resultats2D_Bis_HTML = function () {
-    // Rendre tous les dés invisibles au début
-    rendreDesInvisibles();
-    rendreDesBis_Invisibles();
-    rendreDesTrois_Invisibles();
-
-    rendreTitreInvisibles();
-
-    rendreTripleWinInvisible();
-    rendreMessageInvisible();
-
-    const deVisible1 = document.querySelector('.leDe');
-    deVisible1.style.display = 'block';
-    deVisible1.style.backgroundColor = 'white ';
-
-    const resultat = lancerDe();
-    const resultatTexte = deTexte[resultat.toString()];
-
-    // Afficher le résultat
-    const resultatDiv = document.getElementById('resultat');
-    resultatDiv.textContent = ` ${resultat} (${resultatTexte})`;
-    resultatDiv.style.color = 'white';
-    resultatDiv.style.fontSize = '2rem';
-
-    // Afficher le dé correspondant au résultat
-    const pointsDeVisible = document.querySelector('.leDe .leDeWrap .de' + resultat);
-    pointsDeVisible.style.display = 'block';
-
-    //----------------------------- DES DEUX ----------------------------------------//
-    const deVisible2 = document.querySelector('.leDeBis');
-    deVisible2.style.display = 'block';
-    deVisible2.style.backgroundColor = 'white ';
-
-    const resultatBis = lancerDe();
-    const resultatTexteBis = deTexte[resultatBis.toString()];
-
-    // Afficher le résultat
-    const resultatDivBis = document.getElementById('resultatBis');
-    resultatDivBis.textContent = ` ${resultatBis} (${resultatTexteBis})`;
-    resultatDivBis.style.color = 'white';
-    resultatDivBis.style.fontSize = '2rem';
-
-    // Afficher le dé correspondant au résultat
-    const pointsDeVisibleBis = document.querySelector('.leDeBis .leDeBisWrap .deBis' + resultatBis);
-    pointsDeVisibleBis.style.display = 'block';
-
-
-    //----------------------------------------------------------------------
-    if (localStorage.getItem('DeNumero3')) {
-        console.log("dé 3 actif")
-        //----------------------------- DES TROIS ----------------------------------------//
-        const deVisible3 = document.querySelector('.leDeTrois');
-        deVisible3.style.display = 'block';
-        deVisible3.style.backgroundColor = 'white ';
-
-        const resultatTrois = lancerDe();
-        const resultatTexteTrois = deTexte[resultatTrois.toString()];
-
-        // Afficher le résultat
-        const resultatDivTrois = document.getElementById('resultatTrois');
-        resultatDivTrois.textContent = ` ${resultatTrois} (${resultatTexteTrois})`;
-        resultatDivTrois.style.color = 'white';
-        resultatDivTrois.style.fontSize = '2rem';
-
-        // Afficher le dé correspondant au résultat
-        const pointsDeVisibleTrois = document.querySelector('.leDeTrois .leDeTroisWrap .deTrois' + resultatTrois);
-        pointsDeVisibleTrois.style.display = 'block';
-    }
-
-
-    //----------------------------------------------------------------------
-    const winMsg1 = function (resultat, resultatBis) {
-        const messageDeWin = document.getElementById('winMessage');
-        const de = document.querySelector('.leDe');
-        const deBis = document.querySelector('.leDeBis');
-
-        if (resultat === resultatBis) {
-            messageDeWin.style.display = 'block';
-            de.style.backgroundColor = 'red';
-            deBis.style.backgroundColor = 'red';
-        }
-    }
-    if (resultat === resultatBis) {
-        winMsg1(resultat, resultatBis);
-    }
-
-    const winMsg2 = function (resultat, resultatTrois) {
-        const messageDeWin = document.getElementById('winMessage');
-        de = document.querySelector('.leDe');
-        deTrois = document.querySelector('.leDeTrois');
-
-        if (resultat === resultatTrois) {
-            messageDeWin.style.display = 'block';
-            de.style.backgroundColor = 'green';
-            deTrois.style.backgroundColor = 'green';
-        }
-    }
-    if (resultat == resultatTrois) {
-        winMsg2(resultat, resultatTrois);
-    }
-
-    const winMsg3 = function (resultatBis, resultatTrois) {
-        const winerMsg = document.getElementById('winMessage');
-        deBis = document.querySelector('.leDeBis');
-        deTrois = document.querySelector('.leDeTrois');
-
-        if (resultatBis === resultatTrois) {
-            winerMsg.style.display = 'block';
-            deBis.style.backgroundColor = 'purple';
-            deTrois.style.backgroundColor = 'purple';
-        }
-    }
-    if (resultatBis === resultatTrois) {
-        winMsg3(resultatBis, resultatTrois);
-    }
-}
-*/
-
 noPlayer = function () {
     let timer0 = 10; // Initialiser le timer à 60 secondes
     let intervalId0 = null; // Déclarer une variable pour stocker l'ID de l'intervalle
@@ -524,56 +385,6 @@ let humanGameOver = 0
 
 let computerScore = 0;
 let computerGameOver = 0
-var controledNumber = 0;
-
-function rotatingCube(){
-    let n = lancerDe();
-
-   controledNumber = n  
-  console.log(controledNumber)
-
-    let rotateCube = rotateSides[Math.floor(Math.random() * rotateSides.length)]
-    if(rotateCube != rotor) {
-        rotor = rotateCube
-
-        container.style.animation = `rotate${rotateCube} 1s`;
-
-        
-    }else {
-
-        let indexMinus = rotateSides.indexOf(rotateCube)
-   
-
-        if (indexMinus == 1) {
-
-            rotor = rotateSides[indexMinus - 1]
-            container.style.animation = `rotate${rotor} 1s`;
-
-        }else {
-
-            rotor = rotateSides[indexMinus + 1]
-            container.style.animation = `rotate${rotor} 1s`;
-
-        }
-          
-    }
-}
-
-
-
-
-
-/*
-const score = function(){
-    if(this.winMsg1 === 1){
-        humanScore + 1
-    }
-   
-}
-*/
-
-
-
 
 //----------------------------------------------------------------------
 
@@ -596,11 +407,7 @@ document.getElementById('btChance').addEventListener('click', diminuerTemps);
 const btnChance = document.getElementById('btChance');
 btnChance.addEventListener('click', resultats2D_HTML);
 //-------------------//
-/*
-// Ajouter un gestionnaire d'événement pour le bouton
-const btnChance2 = document.getElementById('btChance');
-btnChance2.addEventListener('click', resultats2D_Bis_HTML);
-*/
+
 const btnFin = document.getElementById('btFin');
 
 const bouton2 = document.getElementById('btRecommence');

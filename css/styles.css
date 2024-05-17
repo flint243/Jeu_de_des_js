@@ -3,6 +3,9 @@
     margin: 0;
     padding: 0;
 }
+.audio1{
+    display: block;
+}
 
 html, body {
     height: 100%;
