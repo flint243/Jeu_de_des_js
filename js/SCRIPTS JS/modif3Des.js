@@ -31,13 +31,15 @@ const rendreDesBis_Invisibles = function () {
         deBis.style.display = 'none';
     });
 }
-// Fonction pour rendre les dés3 invisibles
+
 const rendreDesTrois_Invisibles = function () {
     const desTrois = document.querySelectorAll('.leDeTrois .leDeTroisWrap div[class^="deTrois"]');
     desTrois.forEach(deTrois => {
         deTrois.style.display = 'none';
     });
-}
+};
+
+
 // Fonction pour rendre le titre invisible
 const rendreTitreInvisibles = function () {
     const titreJeuDe = document.getElementById('titreJeu');
@@ -55,10 +57,10 @@ const rendreTripleWinInvisible = function () {
 }
 
 //----------- concerver les ID dans le formulaire -----------------------//
-if (localStorage.prenomA) {
+if (localStorage.getItem('prenomA')) {
     lancerDe();
     console.log(localStorage.prenomA + " " + "dans le formulaire")
-} else if (localStorage.prenomB) {
+} else if (localStorage.getItem('prenomB')) {
     lancerDe();
     console.log(localStorage.prenomB + " " + "dans le formulaire")
 
@@ -81,160 +83,116 @@ if (localStorage.getItem('prenomA')) {
     };
 }
 
-if (localStorage.DeNumero2) {
+const resultats3D_HTML = function () {
+    // Rendre tous les dés invisibles au début
+    rendreDesInvisibles();
+    rendreDesBis_Invisibles();
+    rendreDesTrois_Invisibles();
+    rendreTitreInvisibles();
+    rendreTripleWinInvisible();
+    rendreMessageInvisible();
+
+    // Premier dé
+    const deVisible1 = document.querySelector('.leDe');
+    deVisible1.style.display = 'block';
+    deVisible1.style.backgroundColor = 'white ';
+
+    const resultat = lancerDe();
+    const resultatTexte = deTexte[resultat.toString()];
+
+    // Afficher le résultat
+    const resultatDiv = document.getElementById('resultat');
+    resultatDiv.textContent = ` ${resultat} (${resultatTexte})`;
+    resultatDiv.style.color = 'white';
+    resultatDiv.style.fontSize = '2rem';
+
+    // Afficher le dé correspondant au résultat
+    const pointsDeVisible = document.querySelector('.leDe .leDeWrap .de' + resultat);
+    pointsDeVisible.style.display = 'block';
+
+    // Deuxième dé
+    const deVisible2 = document.querySelector('.leDeBis');
+    deVisible2.style.display = 'block';
+    deVisible2.style.backgroundColor = 'white ';
+
+    const resultatBis = lancerDe();
+    const resultatTexteBis = deTexte[resultatBis.toString()];
+
+    // Afficher le résultat
+    const resultatDivBis = document.getElementById('resultatBis');
+    resultatDivBis.textContent = ` ${resultatBis} (${resultatTexteBis})`;
+    resultatDivBis.style.color = 'white';
+    resultatDivBis.style.fontSize = '2rem';
+
+    // Afficher le dé correspondant au résultat
+    const pointsDeVisibleBis = document.querySelector('.leDeBis .leDeWrap .deBis' + resultatBis);
+    pointsDeVisibleBis.style.display = 'block';
+
+    // Troisième dé
     const deVisible3 = document.querySelector('.leDeTrois');
-    deVisible3.style.display = 'none';
-}
+    deVisible3.style.display = 'block';
+    deVisible3.style.backgroundColor = 'white ';
 
-//-----------------------------------------   DEBUT LANCER DE DES
-    // Fonction pour afficher le résultat en HTMlocation.reload();L
-    const resultats2D_HTML = function () {
-        // Rendre tous les dés invisibles au début
-        rendreDesInvisibles();
-        rendreDesBis_Invisibles();
-        rendreDesTrois_Invisibles();
-        rendreTitreInvisibles();
-        rendreTripleWinInvisible();
-        rendreMessageInvisible();
+    const resultatTrois = lancerDe();
+    const resultatTexteTrois = deTexte[resultatTrois.toString()];
 
-        const deVisible1 = document.querySelector('.leDe');
-        deVisible1.style.display = 'block';
-        deVisible1.style.backgroundColor = 'white ';
+    // Afficher le résultat
+    const resultatDivTrois = document.getElementById('resultatTrois');
+    resultatDivTrois.textContent = ` ${resultatTrois} (${resultatTexteTrois})`;
+    resultatDivTrois.style.color = 'white';
+    resultatDivTrois.style.fontSize = '2rem';
 
-        const resultat = lancerDe();
-        const resultatTexte = deTexte[resultat.toString()];
+    // Afficher le dé correspondant au résultat
+    const pointsDeVisibleTrois = document.querySelector('.leDeTrois .leDeWrap .deTrois' + resultatTrois);
+    pointsDeVisibleTrois.style.display = 'block';
 
-        // Afficher le résultat
-        const resultatDiv = document.getElementById('resultat');
-        resultatDiv.textContent = ` ${resultat} (${resultatTexte})`;
-        resultatDiv.style.color = 'white';
-        resultatDiv.style.fontSize = '2rem';
-
-        // Afficher le dé correspondant au résultat
-        const pointsDeVisible = document.querySelector('.leDe .leDeWrap .de' + resultat);
-        pointsDeVisible.style.display = 'block';
-
-        //----------------------------- DES DEUX ----------------------------------------//
-        const deVisible2 = document.querySelector('.leDeBis');
-        deVisible2.style.display = 'block';
-        deVisible2.style.backgroundColor = 'white ';
-
-        const resultatBis = lancerDe();
-        const resultatTexteBis = deTexte[resultatBis.toString()];
-
-        // Afficher le résultat
-        const resultatDivBis = document.getElementById('resultatBis');
-        resultatDivBis.textContent = ` ${resultatBis} (${resultatTexteBis})`;
-        resultatDivBis.style.color = 'white';
-        resultatDivBis.style.fontSize = '2rem';
-
-        // Afficher le dé correspondant au résultat
-        const pointsDeVisibleBis = document.querySelector('.leDeBis .leDeBisWrap .deBis' + resultatBis);
-        pointsDeVisibleBis.style.display = 'block';
-
-//----------------------------- DES TROIS ----------------------------------------//
-            const deVisible3 = document.querySelector('.leDeTrois');
-            deVisible3.style.display = 'block';
-            deVisible3.style.backgroundColor = 'white ';
-
-            const resultatTrois = lancerDe();
-            const resultatTexteTrois = deTexte[resultatTrois.toString()];
-
-            // Afficher le résultat
-            const resultatDivTrois = document.getElementById('resultatTrois');
-            resultatDivTrois.textContent = ` ${resultatTrois} (${resultatTexteTrois})`;
-            resultatDivTrois.style.color = 'white';
-            resultatDivTrois.style.fontSize = '2rem';
-
-            // Afficher le dé correspondant au résultat
-            const pointsDeVisibleTrois = document.querySelector('.leDeTrois .leDeTroisWrap .deTrois' + resultatTrois);
-            pointsDeVisibleTrois.style.display = 'block';
-
-        // Mettez toutes les fonctions winMsg dans une seule boucle pour vérifier toutes les conditions à la fois
-        const checkConditionsAndIncrementScore = function (resultat, resultatBis, resultatTrois) {
-            const messageDeWin = document.getElementById('winMessage');
-            const messageTripleWin = document.getElementById('tripleWinMessage');
-            const de = document.querySelector('.leDe');
-            const deBis = document.querySelector('.leDeBis');
-            const deTrois = document.querySelector('.leDeTrois');
-    
-            const myAudio = document.createElement('audio');
-            myAudio.src = "/sounds/soundFX/mario1.mp3"
-
-            const myAudio2 = document.createElement('audio');
-            myAudio2.src = "/sounds/soundFX/gunX3.mp3"
-    
-            if (resultat === resultatBis && resultat === resultatTrois) {
-                messageTripleWin.style.display = 'block';
-                de.style.backgroundColor = 'red';
-                deBis.style.backgroundColor = 'red';
-                deTrois.style.backgroundColor = 'red';
-                myAudio2.play();
-    
-                // Incrémente le score du joueur A
-                incrementerScorePrenomA();
-            } else if (resultat === resultatBis || resultat === resultatTrois || resultatBis === resultatTrois) {
-                messageDeWin.style.display = 'block';
-                if (resultat === resultatBis) {
-                    de.style.backgroundColor = 'red';
-                    deBis.style.backgroundColor = 'red';
-                }
-                if (resultat === resultatTrois) {
-                    de.style.backgroundColor = 'red';
-                    deTrois.style.backgroundColor = 'red';
-                }
-                if (resultatBis === resultatTrois) {
-                    deBis.style.backgroundColor = 'red';
-                    deTrois.style.backgroundColor = 'red';
-                }
-                myAudio.play();
-    
-                // Incrémente le score du joueur A
-                incrementerScorePrenomA();
-            }
-        };
-    
-        // Appeler la fonction pour vérifier les conditions et incrémenter le score du joueur A
-        checkConditionsAndIncrementScore(resultat, resultatBis, resultatTrois);
-    }
-
-        // Mettez toutes les fonctions winMsg dans une seule boucle pour vérifier toutes les conditions à la fois
-        const checkConditionsAndIncrementScore_3D = function (resultat, resultatBis/*, resultatTrois*/) {
+    // Mettez toutes les fonctions winMsg dans une seule boucle pour vérifier toutes les conditions à la fois
+    const checkConditionsAndIncrementScore = function (resultat, resultatBis, resultatTrois) {
         const messageDeWin = document.getElementById('winMessage');
+        const messageTripleWin = document.getElementById('tripleWinMessage');
         const de = document.querySelector('.leDe');
         const deBis = document.querySelector('.leDeBis');
-        //const deTrois = document.querySelector('.leDeTrois');
+        const deTrois = document.querySelector('.leDeTrois');
 
         const myAudio = document.createElement('audio');
         myAudio.src = "/sounds/soundFX/mario1.mp3"
 
-        if (resultat === resultatBis) {
-            messageDeWin.style.display = 'block';
+        if (resultat === resultatBis && resultat === resultatTrois) {
+            messageTripleWin.style.display = 'block';
             de.style.backgroundColor = 'red';
             deBis.style.backgroundColor = 'red';
+            deTrois.style.backgroundColor = 'red';
+            myAudio.play();
+
+            // Incrémente le score du joueur A
+            incrementerScorePrenomA();
+        } else if (resultat === resultatBis || resultat === resultatTrois || resultatBis === resultatTrois) {
+            messageDeWin.style.display = 'block';
+            if (resultat === resultatBis) {
+                de.style.backgroundColor = 'red';
+                deBis.style.backgroundColor = 'red';
+            }
+            if (resultat === resultatTrois) {
+                de.style.backgroundColor = 'red';
+                deTrois.style.backgroundColor = 'red';
+            }
+            if (resultatBis === resultatTrois) {
+                deBis.style.backgroundColor = 'red';
+                deTrois.style.backgroundColor = 'red';
+            }
             myAudio.play();
 
             // Incrémente le score du joueur A
             incrementerScorePrenomA();
         }
-        };
+    };
 
-        // Appeler la fonction pour vérifier les conditions et incrémenter le score du joueur A
-        checkConditionsAndIncrementScore_3D(resultat, resultatBis, resultatTrois);
-    
-
-
-
-
+    // Appeler la fonction pour vérifier les conditions et incrémenter le score du joueur A
+    checkConditionsAndIncrementScore(resultat, resultatBis, resultatTrois);
+}
 
 
 //----------------------------------------------------------------------
-const resetHTML = function () {
-    location.reload();
-    $('#tuRecommences').text("Tu recommences?");
-    //$('#bandeauInfosInt').css({'display':'none', 'color':'red'})
-
-}
 
 if (location.reload) {
     if (localStorage.getItem('prenomA')) {
@@ -285,8 +243,6 @@ if (localStorage.getItem('prenomA')) {
 
 
 //------------------------- DECOMPTE PROCHAINNE PARTIE ---------------------------------------------
-//let timer = 5; // Initialiser le timer à 15 secondes
-//let intervalId = null; // Déclarer une variable pour stocker l'ID de l'intervalle
 const diminuerTemps2 = function () {
     let timer = 5;
     let intervalId = null;
@@ -405,6 +361,10 @@ noPlayer = function () {
 }
 
 //-----------------------------------------------------------------------------------------------------------
+const resetHTML = function () {
+    location.reload();
+    $('#tuRecommences').text("Tu recommences?");
+}
 
 const changeJoueurHTML = function () {
     location.reload();
@@ -419,15 +379,13 @@ const reglageHTML = function () {
 // Écouter les clics sur le bouton pour démarrer le compte à rebours
 document.getElementById('btChance').addEventListener('click', diminuerTemps);
 
-
 /******* LANCE DE ***********/
 // Ajouter un gestionnaire d'événement pour le bouton
 const btnChance = document.getElementById('btChance');
-btnChance.addEventListener('click', resultats2D_HTML);
-
 btnChance.addEventListener('click', resultats3D_HTML);
-//-------------------//
 
+//btnChance.addEventListener('click', resultats3D_HTML);
+//-------------------//
 
 let scoresPoint = document.getElementById('scores');
 $('#scores').css({ 'backgroundColor': 'orange', 'padding': '2px 10px 20px', 'borderRadius': '10px', 'color': 'white' })

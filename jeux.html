@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="css/jeu.css" />
 
     <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.js"></script>
+    
   </head>
 
   <body>
@@ -20,11 +22,14 @@
           <div id="tuRecommences"></div>
         </div>
 
-        <div id="scores">
+        <div id="scores1">
           <h1> Votre score est de </h1>
-        <div id="scorePrenomA" class="score"><span class="point"></span></div>
-        <div id="scorePrenomB" class="score"><span class="point"></span></div>
+        <div id="scorePrenomA" class="score"></div>
       </div>
+      <div id="scores2">
+        <h1> Votre score est de </h1>
+      <div id="scorePrenomB" class="score"></div>
+    </div>
   
       </div>
 
@@ -48,7 +53,7 @@
           <button id="btRetour2"><a href="ChoixJoueurs.html">Selection joueur</a></button>
           <div id="pseudoManque"></div>
           <div id="time_out"></div>
-          <div id="titreJeu"> Le krabs gagnant !</div>
+          <div id="titreJeu"> <h2>Le krabs gagnant !</h2></div>
           <div id="cadreDe1" class="cadre">
             <div class="resExt">
               <div id="resultat"></div>
@@ -103,6 +108,7 @@
 
             <div class="leDeBis">
               <div class="leDeBisWrap">
+
                 <div class="deBis1"></div>
 
                 <div class="deBis2">
@@ -203,10 +209,10 @@
 
         <div id="chanceExt">
             <button id="btFin">Fin de la partie !</button>
-            <button id="btChance">Tente ta chance !</button>
+            <button id="btnChance">Tente ta chance !</button>
           </div>
       </div>
     </main>
-    <script src="js/script2DBis.js"></script>
+    <script src="js/modif3Des.js"></script>
   </body>
 </html>
