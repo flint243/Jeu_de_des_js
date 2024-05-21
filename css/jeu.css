@@ -1,50 +1,101 @@
-@font-face{
-  font-family:'boomster';
+/******************* FONTS ****************************/
+@font-face {
+  font-family: "boomster";
   font-style: normal;
-  src: local("boomster"),
-        url('/boomster_graffiti/BOOMSTER.otf') format('otf'),
+  font-weight: bold;
+  src: url(/fonts/boomster_graffiti/BOOMSTER.otf) format("truetype");
+}
+@font-face {
+  font-family: "bombing";
+  font-style: normal;
+  font-weight: 100;
+  src: url(/fonts/bombing/Bombing.ttf) format("truetype");
+}
+@font-face {
+  font-family: "grafUrbain";
+  font-style: normal;
+  font-weight: 100;
+  src: url(/fonts/graffiti_urban/GraffitiUrban-Regular.otf) format("truetype");
+}
+@font-face {
+  font-family: "jakarta";
+  font-style: normal;
+  font-weight: 100;
+  src: url(/fonts/spartical_graffiti/SparticalGraffiti_PERSONAL_USE_ONLY.otf)
+    format("truetype");
 }
 
-
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 body {
-  background-image: url('/img/NY3.jpg');
+  background-image: url("/img/NY3.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
 }
+/******************* MAIN ****************************/
 main {
   text-align: center;
 }
-#hautMain{
+/***********************************************/
+
+/******************* TOP ****************************/
+#hautMain {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   padding: 5px;
 }
-#tuRecommences{
+#scores1{
+  position: absolute;
+  width: 20%;
+  height: auto;
+  padding: 10px;
+  right: 10px;
+  display: block;
+  background-color: orange;
+
+}
+#scores2{
+  position: absolute;
+  width: 20%;
+  height: auto;
+  padding: 10px;
+  right: 10px;
+  display: block;
+  background-color: orange;
+}
+.score{
+  position: relative;
+  font-size: 2rem;
+  background-color: green;
+}
+
+#tuRecommences {
   position: absolute;
   margin-top: 5%;
   left: 30%;
   font-size: 2rem;
   color: red;
 }
-#centerMain{
+
+/******************* DOWN ****************************/
+#centerMain {
   display: flex;
   flex-wrap: wrap;
   padding: 20px;
   position: relative;
-  top: 150px;
-}
-#recommenceGroup{
-  width: 20%;
+  top: 100px;
 }
 
-#bandeauInfos{
+#bandeauInfos {
   width: auto;
   height: auto;
   position: relative;
@@ -56,7 +107,9 @@ main {
   color: beige;
 }
 
-#msgGroup{
+
+/******************* CADRE DU JEU ****************************/
+#msgGroup {
   width: 100%;
   position: relative;
   text-align: center;
@@ -65,8 +118,8 @@ main {
   width: 20%;
   height: auto;
   position: absolute;
-  top: 100px;
-  margin-left: 45%;
+  top: 10px;
+  margin-left: 40%;
   margin-right: auto;
   font-size: 3rem;
   background-color: white;
@@ -81,8 +134,8 @@ main {
   width: 20%;
   height: auto;
   position: absolute;
-  top: 90px;
-  margin-left: 45%;
+  top: 10px;
+  margin-left: 40%;
   margin-right: auto;
   background-color: white;
   border-radius: 5px;
@@ -92,21 +145,21 @@ main {
   font-size: 3rem;
   display: none;
 }
-#titreJeu {
-  width: auto;
-  height: auto;
-  position: absolute;
-  top: 110px;
-  margin-left: 0%;
-  font-family:"boomster";
+
+h2{
+  width: 100%;
+  height: 40%;
+  position: relative;
+  top: 15%;
+  font-family: Boomster;
   font-size: 5rem;
-  background-color: rgba(36, 102, 60, 0.609);
-  border-radius: 5px;
+  mask-image: url(/img/NY2.jpeg);
+  font-weight: bold;
   border: none;
-  display: block;
-  padding: 10px;
-  color: red;
+  padding: 10px 30px;
+  color:black;
 }
+
 
 #pseudoManque {
   width: 100%;
@@ -120,7 +173,7 @@ main {
 }
 
 #time_out {
-  width: 100%;
+  width: 50%;
   height: auto;
   position: absolute;
   top: 40px;
@@ -128,12 +181,16 @@ main {
   color: red;
   border-radius: 5px;
   border: none;
-  font-size: 4rem;
+  font-family: bombing;
+  font-weight: 600;
+  font-size: 5rem;
   padding: 20px 0px;
+  background-color: white;
   z-index: 100;
 }
 
-.cadreDe{
+/******************* CADRE INT DU JEU ****************************/
+.cadreDe {
   background-image: url(/img/ny1.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -141,19 +198,18 @@ main {
 .cadreDe {
   display: flex;
   flex-direction: row;
-  width: 60%;
-  height: auto;
+  width: auto;
+  height: 400px;
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 30px;
-  padding: 0px 10px 110px 10px;
+  padding: 0px 50px;
   border-radius: 1rem;
   justify-content: space-around;
   background-color: rgba(7, 205, 139, 0.704);
 }
 
-.cadre{
+.cadre {
   margin-left: 20px;
 }
 #cadreDe1 {
@@ -414,8 +470,7 @@ main {
   height: 200px;
   border-radius: 10px;
   position: relative;
-  margin-left: auto;
-  margin-right: auto;
+  
   top: 40%;
   border: 1px solid grey;
   display: none;
@@ -902,8 +957,6 @@ main {
   color: white;
 }
 
-
-
 #cadreChoix {
   display: flex;
   width: auto;
@@ -912,10 +965,10 @@ main {
 }
 
 /****************************** BOUTTON **********************************/
-.btnG{
+.btnG {
   margin-top: 20px;
 }
-#boutonsGroup{
+#boutonsGroup {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -927,183 +980,203 @@ main {
 #btRetour {
   width: auto;
   position: relative;
-  padding: 20px;
+  font-family: grafUrbain;
+  padding: 10px;
   border-radius: 5px;
   border: none;
-  font-size: large;
-  box-shadow:1px 3px #50514f;
-  transition:.3s;
+  font-size: 1.5rem;
+  box-shadow: 1px 3px #50514f;
+  transition: 0.3s;
 }
-#btRetour:hover, #btRetour:active  {
-  outline:none;
-  background-color:#50514f;
-   cursor: pointer;
-   transform:translateY(15px);
+#btRetour:hover,
+#btRetour:active {
+  outline: none;
+  background-color: #50514f;
+  cursor: pointer;
+  transform: translateY(5px);
 }
 #btRetour2 {
   width: auto;
   position: relative;
-  padding: 20px;
+  font-family: grafUrbain;
+  padding: 10px;
   border-radius: 5px;
   border: none;
   font-size: large;
-  box-shadow:1px 3px #50514f;
-  transition:.3s;
+  box-shadow: 1px 3px #50514f;
+  transition: 0.3s;
   display: none;
 }
-#btRetour2:hover, #btRetour2:active  {
-  outline:none;
-  background-color:#50514f;
-   cursor: pointer;
-   transform:translateY(15px);
+#btRetour2:hover,
+#btRetour2:active {
+  outline: none;
+  background-color: #50514f;
+  cursor: pointer;
+  transform: translateY(5px);
 }
 
 #btReglage {
   width: auto;
   position: relative;
-  padding: 20px;
+  font-family: grafUrbain;
+  padding: 10px;
   border-radius: 5px;
   border: none;
-  font-size: large;
-  box-shadow:1px 3px #50514f;
-  transition:.3s;
+  font-size: 1.5rem;
+  box-shadow: 1px 3px #50514f;
+  transition: 0.3s;
 }
-#btReglage:hover, #btReglage:active  {
-  outline:none;
-  background-color:#50514f;
-   cursor: pointer;
-   transform:translateY(15px);
+#btReglage:hover,
+#btReglage:active {
+  outline: none;
+  background-color: #50514f;
+  cursor: pointer;
+  transform: translateY(5px);
 }
 
-
+#recommenceGroup {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
 #btRecommence {
   width: auto;
   position: relative;
-  padding: 20px;
+  font-family: grafUrbain;
+  padding: 10px;
   border-radius: 5px;
   border: none;
-  font-size: large;
+  font-size: 1.5rem;
   align-self: flex-start;
-  box-shadow:1px 3px #50514f;
-  transition:.3s;
+  box-shadow: 1px 3px #50514f;
+  transition: 0.3s;
 }
-#btRecommence:hover, #btRecommence:active  {
-  outline:none;
-  background-color:#50514f;
-   cursor: pointer;
-   transform:translateY(15px);
+#btRecommence:hover,
+#btRecommence:active {
+  outline: none;
+  background-color: #50514f;
+  cursor: pointer;
+  transform: translateY(5px);
 }
-#chanceExt{
-  width: 100%;
-  text-align: center;
-}
+
 #btFin {
   width: auto;
   position: absolute;
+  font-family: grafUrbain;
   left: 45%;
-  padding: 20px;
+  padding: 10px;
   border-radius: 5px;
   border: none;
-  font-size: large;
+  font-size: 1.5rem;
   color: white;
   background-color: red;
-  box-shadow:1px 3px #50514f;
-  transition:.3s;
+  box-shadow: 1px 3px #50514f;
+  transition: 0.3s;
   display: none;
   z-index: 1010;
 }
-#btChance {
+
+#chanceExt {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+#btnChance {
   width: auto;
   position: relative;
-  padding: 20px;
+  font-family: "jakarta";
+  padding: 10px 20px;
   border-radius: 5px;
   border: none;
-  font-size: large;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 2rem;
   color: green;
-  box-shadow:1px 3px #50514f;
-  transition:.3s;
+  box-shadow: 1px 3px #50514f;
+  transition: 0.3s;
   z-index: 1010;
 }
-button#btChance:hover, button#btChance:active  {
-  outline:none;
-  background-color:#50514f;
-   cursor: pointer;
-   transform:translateY(15px);
+button#btnChance:hover,
+button#btnChance:active {
+  outline: none;
+  background-color: #50514f;
+  cursor: pointer;
+  transform: translateY(5px);
 }
 
 #btChangerJoueur {
   width: auto;
   position: relative;
-  padding: 20px;
+  font-family: grafUrbain;
+  padding: 10px;
   border-radius: 5px;
   border: none;
-  font-size: large;
-  box-shadow:1px 3px #50514f;
-  transition:.3s;
+  font-size: 1.5rem;
+  box-shadow: 1px 3px #50514f;
+  transition: 0.3s;
 }
-#btChangerJoueur:hover, #btChangerJoueur:active  {
-  outline:none;
-  background-color:#50514f;
-   cursor: pointer;
-   transform:translateY(15px);
+#btChangerJoueur:hover,
+#btChangerJoueur:active {
+  outline: none;
+  background-color: #50514f;
+  cursor: pointer;
+  transform: translateY(5px);
 }
-
-
-
-
 
 /***************************** RESPONSIVE ********************************************/
 
-@media screen and (max-width: 768px){
-#resultat, #resultatBis, #resultatTrois{
-  display: none;
-}
+@media screen and (max-width: 768px) {
+  #resultat,
+  #resultatBis,
+  #resultatTrois {
+    display: none;
+  }
 
-  #accueilGroup{
+  #accueilGroup {
     width: 100%;
   }
-  #bandeauInfos{
+  #bandeauInfos {
     width: auto;
   }
 
-#centerMain{
-  justify-items: center;
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  top: 0px;
-}
+  #centerMain {
+    justify-items: center;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    top: 0px;
+  }
 
-.cadreDe{
-  flex-wrap: wrap;
-  width: 100%;
-}
-#cadreDe1{
-  height: auto;
-}
-.leDe{
-  top:0px
-}
-#cadreDe2{
-  height: auto;
-}
-.leDeBis{
-  top:0px
-}
-#cadreDeTrois{
-  height: auto;
-}
-.leDeTrois{
-  top:0px
-}
-#titreJeu{
-  font-size: 300%;
-}
-  #titreJeu{
+  .cadreDe {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  #cadreDe1 {
+    height: auto;
+  }
+  .leDe {
+    top: 0px;
+  }
+  #cadreDe2 {
+    height: auto;
+  }
+  .leDeBis {
+    top: 0px;
+  }
+  #cadreDeTrois {
+    height: auto;
+  }
+  .leDeTrois {
+    top: 0px;
+  }
+  #titreJeu {
+    font-size: 300%;
+  }
+  #titreJeu {
     top: 0px;
     height: 100%;
   }
 
-  #chanceExt{
+  #chanceExt {
     width: auto;
   }
   #boutonsGroup {
@@ -1111,40 +1184,34 @@ button#btChance:hover, button#btChance:active  {
     flex-direction: row;
     justify-content: space-around;
     top: 40px;
+  }
+
+  #btnChance {
+    position: absolute;
+    top: 75%;
+  }
 }
 
-#btChance {
-  position: absolute;
-  top: 75%;
-}
-}
-
-
-@media screen and (max-width: 425px){
+@media screen and (max-width: 425px) {
   #btRetour {
     width: 100%;
     padding: inherit;
   }
 
-  #bandeauInfos{
+  #bandeauInfos {
     width: 100%;
     padding: inherit;
   }
-
 
   #recommenceGroup {
     width: 100%;
   }
   #btRecommence {
-  padding: inherit;
+    padding: inherit;
   }
 
   #btChance {
     top: 85%;
-left: 30%;
-}
-
-
-
-
+    left: 30%;
+  }
 }

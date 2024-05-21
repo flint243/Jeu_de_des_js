@@ -7,22 +7,33 @@
     <link rel="stylesheet" href="css/jeu.css" />
 
     <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.js"></script>
+    
   </head>
 
   <body>
+    <audio autoplay loop src="/sounds/audioSaloon/Saloon_02.mp3" class="audio3"></audio>
     <main id="main">
       <div id="hautMain">
-        <div id="accueilGroup">
-            <button id="btRetour"><a href="index.html">Accueil</a></button>
-        </div>
 
         <div id="bandeauInfos">
           <div id="bandeauInfosInt"></div>
           <div id="decompte"></div>
           <div id="tuRecommences"></div>
         </div>
+
+        <div id="scores1">
+          <h1> Votre score est de </h1>
+        <div id="scorePrenomA" class="score"></div>
+      </div>
+      <div id="scores2">
+        <h1> Votre score est de </h1>
+      <div id="scorePrenomB" class="score"></div>
+    </div>
+  
       </div>
 
+      
       <div id="msgGroup">
         <h1 id="winMessage">Gagné !</h1>
         <h1 id="tripleWinMessage">Triple win !</h1>
@@ -30,6 +41,7 @@
 
       <div id="centerMain">
       <div id="recommenceGroup">
+        <button id="btRetour"><a href="ChoixJoueurs.html">Séléction joueurs</a></button>
         <button id="btRecommence" class="btnG">
           Recommence le jeu !
         </button>
@@ -41,7 +53,7 @@
           <button id="btRetour2"><a href="ChoixJoueurs.html">Selection joueur</a></button>
           <div id="pseudoManque"></div>
           <div id="time_out"></div>
-          <div id="titreJeu">Le krabs gagnant de Limay !</div>
+          <div id="titreJeu"> <h2>Le krabs gagnant !</h2></div>
           <div id="cadreDe1" class="cadre">
             <div class="resExt">
               <div id="resultat"></div>
@@ -96,6 +108,7 @@
 
             <div class="leDeBis">
               <div class="leDeBisWrap">
+
                 <div class="deBis1"></div>
 
                 <div class="deBis2">
@@ -187,7 +200,7 @@
 
         <div id="boutonsGroup">
           <button id="btReglage" class="btnG">
-            <a href="reglage.html">Réglage</a>
+            <a href="reglage.html">Réglages</a>
           </button>
           <button id="btChangerJoueur" class="btnG">
             <a href="ChoixJoueurs.html">Changer de joueur</a>
@@ -196,10 +209,10 @@
 
         <div id="chanceExt">
             <button id="btFin">Fin de la partie !</button>
-            <button id="btChance">Tente ta chance !</button>
+            <button id="btnChance">Tente ta chance !</button>
           </div>
       </div>
     </main>
-    <script src="js/script2D.js"></script>
+    <script src="js/modif3Des.js"></script>
   </body>
 </html>

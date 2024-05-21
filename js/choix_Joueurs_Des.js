@@ -1,115 +1,134 @@
 class NameBooking {
-    constructor() {
-      let btnChoixNomA = document.getElementById('btConfirmerA');
-      btnChoixNomA.addEventListener("click", this.checkFormA.bind(this));
-  
-      let btnChoixNomB = document.getElementById('btConfirmerB');
-      btnChoixNomB.addEventListener("click", this.checkFormB.bind(this));
+  constructor() {
+    let btnChoixNomA = document.getElementById('btConfirmerA');
+    btnChoixNomA.addEventListener("click", this.checkFormA.bind(this));
+
+    let btnChoixNomB = document.getElementById('btConfirmerB');
+    btnChoixNomB.addEventListener("click", this.checkFormB.bind(this));
+
+    let btn = document.getElementById('makeChoice');
+    // Modifiez le style du bouton pour le rendre visible
+    btn.style.display = 'none'; // ou 'inline-block' selon votre mise en page
+
+    let cadreJoueurB = document.getElementById('cadreJoueurB');
+    cadreJoueurB.style.display = 'none';
+
+ /*
+  // click dé n°1
+    const choix2 = document.getElementById('btnChoixDe2');
+    choix2.addEventListener('click', this.stokerDeN2.bind(this));
+*/
+
+    this.checkFormNameA = false;
+    this.checkFormNameB = false;
+
+  }
+
+  //------------ Sécuriser le formulaire ------------//
+  checkFormA(e) {
+    let nom = document.getElementById('joueurA');
+    let nom_m = document.getElementById('joueurA_manquant');
+
+    //------------ Sécuriser le prenom et messages d'erreur ------------//
+    if (nom.validity.valueMissing) {
+      e.preventDefault();
+      this.checkFormNameA = false;
+    } else {
+      this.checkFormNameA = true;
+      //nom_m.textContent = '';
+      this.storageInfosA(); // Appel de storageInfosA uniquement si le formulaire est rempli
+    }
+  }
+
+  checkFormB(e) {
+    let nomB = document.getElementById('joueurB');
+    let nomB_m = document.getElementById('joueurB_manquant');
+    //------------ Sécuriser le prenom et messages d'erreur ------------//
+    if (nomB.validity.valueMissing) {
+      e.preventDefault();
+      this.checkFormNameB = false;
+    } else {
+      this.checkFormNameB = true;
+      //nom_m.textContent = '';
+      this.storageInfosB(); // Appel de storageInfosB uniquement si le formulaire est rempli
+    }
+  }
+
+
+
+
+  // Fonction pour rendre le dé n°3 invisible
+  stokerDeN2(e) {
+    const desTrois = document.querySelectorAll('.leDeTrois .leDeTroisWrap div[class^="deTrois"]');
+    if (this.deTrois = true) {
+      e.preventDefault();
+      this.choix2 = true;
+      this.storageInfosDeN3();
+    }
+  }
+
+  storageInfosDeN3() {
+    if (this.choix2) {
+      localStorage.setItem('DeNumero2', $('#btnChoixDe2'));
+      console.log('dé n°2 stocké');
+    }
+  }
+
+  //------------ Stockage des infos dans le localStorage ------------//
+  storageInfosA() {
+    // Vérification si le formulaire est rempli avant de stocker les informations
+    if (this.checkFormNameA) {
+      localStorage.setItem('prenomA', $('#joueurA').val());
+      console.log('joueur A stocké');
 
       let btn = document.getElementById('makeChoice');
-        // Modifiez le style du bouton pour le rendre visible
-        btn.style.display = 'none'; // ou 'inline-block' selon votre mise en page
+      let cadreJoueurB = document.getElementById('cadreJoueurB');
+      // Modifiez le style du bouton pour le rendre visible
+      btn.style.display = 'block'; // ou 'inline-block' selon votre mise en page
+      cadreJoueurB.style.display = 'block';
 
-        let cadreJoueurB = document.getElementById('cadreJoueurB');
-        cadreJoueurB.style.display = 'none'; 
-
-        // click dé n°1
-        const choix2 = document.getElementById('btnChoixDe2');
-        choix2.addEventListener('click', this.rendreDeN3_Invisible.bind(this));
-
-        // click dé n°2
-        //const choix3 = document.getElementById('btnChoixDe3');
-        //choix3.addEventListener('click', this.afficher3DesHTML.bind(this));
-
-  
-      this.checkFormNameA = false;
-      this.checkFormNameB = false;
-
-    }
-  
-    //------------ Sécuriser le formulaire ------------//
-    checkFormA(e) {
-      let nom = document.getElementById('joueurA');
-      let nom_m = document.getElementById('joueurA_manquant');
-  
-      //------------ Sécuriser le prenom et messages d'erreur ------------//
-      if (nom.validity.valueMissing) {
-        e.preventDefault();
-        this.checkFormNameA = false;
-      } else {
-        this.checkFormNameA = true;
-        //nom_m.textContent = '';
-        this.storageInfosA(); // Appel de storageInfosA uniquement si le formulaire est rempli
-      }
-    }
-  
-    checkFormB(e) {
-      let nomB = document.getElementById('joueurB');
-      let nomB_m = document.getElementById('joueurB_manquant');
-      //------------ Sécuriser le prenom et messages d'erreur ------------//
-      if (nomB.validity.valueMissing) {
-        e.preventDefault();
-        this.checkFormNameB = false;
-      } else {
-        this.checkFormNameB = true;
-        //nom_m.textContent = '';
-        this.storageInfosB(); // Appel de storageInfosB uniquement si le formulaire est rempli
-      }
-    }
-
-    // Fonction pour rendre le dé n°3 invisible
-rendreDeN3_Invisible(e) {
-  const desTrois = document.querySelectorAll('.leDeTrois .leDeTroisWrap div[class^="deTrois"]');
-  /*desTrois.forEach(deTrois => {
-      deTrois.style.display = 'none';*/
-      if(this.deTrois = true){
-        e.preventDefault();
-        this.choix2 = true;
-      this.storageInfosDeN3();
-      }
-}
-
-storageInfosDeN3(){
-  if(this.choix2){
-    localStorage.setItem('DeNumero2', $('#btnChoixDe2'));
-    console.log('dé n°2 stocké');
-  }
-}
-  
-    //------------ Stockage des infos dans le localStorage ------------//
-    storageInfosA() {
-      // Vérification si le formulaire est rempli avant de stocker les informations
-      if (this.checkFormNameA) {
-        localStorage.setItem('prenomA', $('#joueurA').val());
-
-        let btn = document.getElementById('makeChoice');
-        let cadreJoueurB = document.getElementById('cadreJoueurB');
-        // Modifiez le style du bouton pour le rendre visible
-        btn.style.display = 'block'; // ou 'inline-block' selon votre mise en page
-        cadreJoueurB.style.display = 'block';
-        console.log('joueur A stocké');
-    }
-}
-  
-    storageInfosB() {
-      // Vérification si le formulaire est rempli avant de stocker les informations
-      if (this.checkFormNameB) {
-        localStorage.setItem('prenomB', $('#joueurB').val());
-        
-        let btn = document.getElementById('makeChoice');
-        // Modifiez le style du bouton pour le rendre visible
-        btn.style.display = 'block'; // ou 'inline-block' selon votre mise en page
-        console.log('joueur B stocké');
-      }
     }
   }
-  
-  new NameBooking();
-  
-  
-  
-  
-  
+
+  storageInfosB() {
+    // Vérification si le formulaire est rempli avant de stocker les informations
+    if (this.checkFormNameB) {
+      localStorage.setItem('prenomB', $('#joueurB').val());
+
+      let btn = document.getElementById('makeChoice');
+      // Modifiez le style du bouton pour le rendre visible
+      btn.style.display = 'block'; // ou 'inline-block' selon votre mise en page
+      console.log('joueur B stocké');
+    }
+  }
+
+  /***************** COMPUTER PLAYER */
+
+  checkFormComputer(e) {
+    let nomC = document.getElementById('computer');
+    //------------ Sécuriser le prenom et messages d'erreur ------------//
+    if (this.checkFormNameC) {
+      e.preventDefault();
+    }
+    this.checkFormNameC = true;
+    this.storageComputer(); // Appel de storageInfosB uniquement si le formulaire est rempli
+    location = "jeux.html";
+  }
+  storageComputer() {
+    // Vérification si le formulaire est rempli avant de stocker les informations
+    if (this.btn) {
+      localStorage.setItem('computer', $('#computer').val());
+      console.log('joueur A stocké');
+    }
+}
+}
+
+new NameBooking();
+
+
+
+
+
 
 
 
