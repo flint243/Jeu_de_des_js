@@ -3,60 +3,111 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Choix joueurs et dés</title>
+    <title>CHOIX DES JOUEURS</title>
     <link rel="stylesheet" href="css/choixJoueurs.css" />
 
     <script src="js/jquery.min.js"></script>
   </head>
+
   <body>
-    <audio autoplay loop src="/audioSaloon/Saloon_04Volume.mp3" class="audio2"></audio>
-    <div id="content">
+    <header>
+      <!-- START OF THE TOGGLE -->
+      <div class="container_hamburger">
+        <input id="toggle" type="checkbox"></input>
+
+        <label for="toggle" class="hamburger">
+            <div class="top-bun"></div>
+            <div class="meat"></div>
+            <div class="bottom-bun"></div>
+        </label>
+
+        <div class="navToggle">
+          <div id="titreJeuExt"><br>
+            <div id="titreJeu">Jeu de dés | CHOIX DE JOUEUR</div>
+        </div>
+            <div class="navToggle-wrapper">
+                <div id="menuToggle">
+                    <a href="index.html">Accueil</a><br>
+                    <a href="Jeux.html">Jeu</a><br>
+                    <a href="reglage.html">Réglage</a><br><br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END OF THE TOGGLE -->
+    </header>
+    <!-- SECTION AUDIO -->
+    <audio
+      autoplay
+      loop
+      src="/sounds/audioSaloon/Saloon_04Volume.mp3"
+      class="audio2"
+    ></audio>
+
+    <!-- SECTION MAIN -->
+    <main>
+      <!-- CADRE EXTERIEUR -->
       <div id="cadreChoix">
+        <!-- CADRE INTERIEUR -->
         <div id="cadreInt">
-          <form action="nameValidate" method="POST" id="formulaire">
+          <!-- FORMULAIRE -->
+          <form action=" " method="POST" id="formulaire">
             <div id="inputs">
               <div id="cadreJoueurA">
-              <input
-                type="text"
-                id="joueurA"
-                name="joueurA"
-                placeholder="Joueur A" required="required" maxlength="20"
-              />
-              <span id="joueurA_manquant" class="saisie"></span><br>
-              <button type="button" id="btConfirmerA" name="pseudoGame">Confirmer</button>
-             </div>
+                <!-- INPUT JOUEUR A -->
+                <input
+                  type="text"
+                  id="joueurA"
+                  name="joueurA"
+                  placeholder="Joueur A"
+                  required="required"
+                  maxlength="20"
+                />
+                <span id="joueurA_manquant" class="saisie"></span><br />
+                <button type="button" id="btConfirmerA" name="pseudoGame">
+                  Confirmer
+                </button>
+              </div>
 
               <div id="cadreJoueurB">
                 <div class="titreH3">
-                <h4>Voulez vous séléctionner un deuxième jouer ?</h4>
-              </div>
+                  <h4>Voulez vous séléctionner un deuxième jouer ?</h4>
+                </div>
+                <!-- INPUT JOUEUR B -->
                 <input
                   type="text"
                   id="joueurB"
                   name="joueurB"
-                  placeholder="Joueur B" required="required" maxlength="20"
+                  placeholder="Joueur B"
+                  maxlength="20"
                 />
-                <span id="joueurB_manquant" class="saisie"></span><br>
-                <button type="button" id="btConfirmerB" name="confirmerB">Confirmer</button>
+                <span id="joueurB_manquant" class="saisie"></span><br />
+                <button type="button" id="btConfirmerB" name="confirmerB">
+                  Confirmer
+                </button>
                 <div class="titreH3">
-                  <h4>Sinon choisissez le nombre de dés et appuyez sur entrer</h4>
+                  <h4>
+                    Sinon choisissez le nombre de dés et appuyez sur entrer
+                  </h4>
                 </div>
+              </div>
+            </div>
 
-                <!--<div id="cadreChoixDes">
-                  <button type="button" id="btnChoixDe2" name="btnChoixDe2">Avec Deux dés</button>
-              </div>-->
-            </div>
-            
-      
-            </div>
+            <!-- VALIDATION -->
             <button name="makeChoice" id="makeChoice">
               <a class="makeChoice" href="jeux.html">Entrer</a>
             </button>
           </form>
         </div>
       </div>
-    </div>
+    </main>
 
+    <!-- SECTION FOOTER -->
+    <footer>
+      LE KRABS GAGNANT
+    </footer>
+
+     <!-- SCRIPT JS -->
     <script src="js/choix_Joueurs_Des.js"></script>
   </body>
 </html>

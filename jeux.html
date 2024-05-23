@@ -3,57 +3,88 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jeux de 2 dés</title>
+    <title>JEU</title>
     <link rel="stylesheet" href="css/jeu.css" />
 
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.js"></script>
-    
   </head>
 
   <body>
-    <audio autoplay loop src="/sounds/audioSaloon/Saloon_02.mp3" class="audio3"></audio>
+    <header>
+      <!-- START OF THE TOGGLE -->
+      <div class="container_hamburger">
+        <input id="toggle" type="checkbox"></input>
+
+        <label for="toggle" class="hamburger">
+            <div class="top-bun"></div>
+            <div class="meat"></div>
+            <div class="bottom-bun"></div>
+        </label>
+
+        <div class="navToggle">
+          <div id="titreJeuExt"><br>
+            <div id="titreJeu">Jeu de dés | JEU</div>
+        </div>
+            <div class="navToggle-wrapper">
+                <div id="menuToggle">
+                    <a href="index.html">Accueil</a><br>
+                    <a href="ChoixJoueurs.html">Choix des joueurs</a><br>
+                    <a href="reglage.html">Réglage</a><br><br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END OF THE TOGGLE -->
+    </header>
+    <!-- SECTION AUDIO -->
+    <audio
+      autoplay
+      loop
+      src="/sounds/audioSaloon/Saloon_02.mp3"
+      class="audio3"
+    ></audio>
+
+    <!-- SECTION MAIN -->
     <main id="main">
       <div id="hautMain">
-
+        <!-- SECTION BANDEAU INFORMATIF AVEC NOM DU JOUEUR ET DECOMPTE DU TEMPS DE JEU -->
         <div id="bandeauInfos">
           <div id="bandeauInfosInt"></div>
           <div id="decompte"></div>
           <div id="tuRecommences"></div>
         </div>
 
-        <div id="scores1">
-          <h1> Votre score est de </h1>
-        <div id="scorePrenomA" class="score"></div>
-      </div>
-      <div id="scores2">
-        <h1> Votre score est de </h1>
-      <div id="scorePrenomB" class="score"></div>
-    </div>
-  
+        <!-- SECTION AFFICHAGES DES SCORES  -->
+        <div id="scores1" class="scores">
+          <h1 id="nomJoueurA"></h1>
+          <div id="scorePrenomA" class="score"></div>
+        </div>
+        <div id="scores2" class="scores">
+          <h1 id="nomJoueurB"></h1>
+          <div id="scorePrenomB" class="score"></div>
+        </div>
       </div>
 
-      
+      <!-- SECTION MESSAGE EN CAS DE GAIN DE POINT -->
       <div id="msgGroup">
         <h1 id="winMessage">Gagné !</h1>
         <h1 id="tripleWinMessage">Triple win !</h1>
       </div>
 
+      <!-- REGROUPEMENT DE DIFFERENTS BOUTONS -->
       <div id="centerMain">
-      <div id="recommenceGroup">
-        <button id="btRetour"><a href="ChoixJoueurs.html">Séléction joueurs</a></button>
-        <button id="btRecommence" class="btnG">
-          Recommence le jeu !
-        </button>
-      </div>
+        <div id="recommenceGroup">
+          <button id="btRecommence">Recommence le jeu !</button>
+        </div>
 
-      
-
+        <!-- SECTION JEU PRINCIPAL -->
         <div class="cadreDe">
-          <button id="btRetour2"><a href="ChoixJoueurs.html">Selection joueur</a></button>
           <div id="pseudoManque"></div>
           <div id="time_out"></div>
-          <div id="titreJeu"> <h2>Le krabs gagnant !</h2></div>
+          <div id="titreJeu"><h2>Le krabs gagnant !</h2></div>
+
+          <!-- SECTION DE N1 -->
           <div id="cadreDe1" class="cadre">
             <div class="resExt">
               <div id="resultat"></div>
@@ -101,6 +132,8 @@
             </div>
           </div>
 
+
+          <!-- SECTION DE N2 -->
           <div id="cadreDe2" class="cadre">
             <div class="resExtBis">
               <div id="resultatBis"></div>
@@ -108,7 +141,6 @@
 
             <div class="leDeBis">
               <div class="leDeBisWrap">
-
                 <div class="deBis1"></div>
 
                 <div class="deBis2">
@@ -149,6 +181,8 @@
             </div>
           </div>
 
+
+          <!-- SECTION DE N3 -->
           <div id="cadreDeTrois" class="cadre">
             <div class="resExtTrois">
               <div id="resultatTrois"></div>
@@ -195,24 +229,28 @@
               </div>
             </div>
           </div>
-          
         </div>
 
+        <!-- SECTION AUTRES BOUTONS COTE DROIT DE L'ECRAN -->
         <div id="boutonsGroup">
-          <button id="btReglage" class="btnG">
-            <a href="reglage.html">Réglages</a>
+          <button id="btReglage">
+            Réglages
           </button>
-          <button id="btChangerJoueur" class="btnG">
+          <button id="btChangerJoueur">
             <a href="ChoixJoueurs.html">Changer de joueur</a>
           </button>
         </div>
 
+        <!-- BOUTON SIMULANT LE LANCé DE Dé -->
         <div id="chanceExt">
-            <button id="btFin">Fin de la partie !</button>
-            <button id="btnChance">Tente ta chance !</button>
-          </div>
+          <button id="btFin">Fin de la partie !</button>
+          <button id="btnChance">Tente ta chance !</button>
+        </div>
       </div>
     </main>
-    <script src="js/modif3Des.js"></script>
+
+    <!-- SECTION SCRIPT JS -->
+    
+    <script src="js/script2DBis.js"></script>
   </body>
 </html>

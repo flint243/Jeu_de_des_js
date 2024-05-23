@@ -3,38 +3,86 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Choix joueurs et dés</title>
+    <title>CONFIGURATION</title>
     <link rel="stylesheet" href="css/reglage.css" />
 
     <script src="js/jquery.min.js"></script>
   </head>
-  <body>
-    <audio autoplay loop src="/audioSaloon/Saloon_05Volume.mp3" class="audio4"></audio>
-    <div id="content">
-     <a href="index.html"><h3>Accueil</h3></a> 
-      <div id="cadreChoix">
-        <h2>CONFIGURATIONS</h2>
-        <div id="cadreInt">
-          <form action="nameValidate" method="POST" id="formulaire">
-            <div id="inputs">
-                <div id="cadreChoixDes">
-                  <button type="button" id="btnChoixDe2" name="btnChoixDe2">
-                    Avec Deux dés
-                  </button>
 
-                  <button type="button" id="btnChoixDe3" name="btnChoixDe3">
-                    Avec Trois dés
-                  </button>
+  <body>
+    <header>
+      <!-- START OF THE TOGGLE -->
+      <div class="container_hamburger">
+        <input id="toggle" type="checkbox"></input>
+
+        <label for="toggle" class="hamburger">
+            <div class="top-bun"></div>
+            <div class="meat"></div>
+            <div class="bottom-bun"></div>
+        </label>
+
+        <div class="navToggle">
+          <div id="titreJeuExt"><br>
+            <div id="titreJeu">Jeu de dés | CONFIGURATION</div>
+        </div>
+            <div class="navToggle-wrapper">
+                <div id="menuToggle">
+                    <a href="index.html">Accueil</a><br>
+                    <a href="choixJoueurs.html">Choix des joueurs</a><br>
+                    <a href="Jeux.html">Jeu</a><br><br>
                 </div>
             </div>
+        </div>
+    </div>
+    <!-- END OF THE TOGGLE -->
+    </header>
+    <!-- SECTION AUDIO -->
+    <audio
+      autoplay
+      loop
+      src="/sounds/audioSaloon/Saloon_05Volume.mp3"
+      class="audio4"
+    ></audio>
+
+    <!-- SECTION MAIN -->
+    <main>
+      <a href="index.html"><h3>Accueil</h3></a>
+
+      <!-- SECTION CADRE EXTERIEUR -->
+      <div id="cadreChoix">
+        <h2>CONFIGURATIONS</h2>
+
+        <!-- SECTION CADRE INT -->
+        <div id="cadreInt">
+          <!-- SECTION FORMULAIRE DU NOMBRE DE Dé -->
+          <form action=" " method="POST" id="formulaire">
+            <div id="inputs">
+              <div id="cadreChoixDes">
+                <button type="button" id="btnChoixDe2" name="btnChoixDe2">
+                  Avec Deux dés
+                </button>
+
+                <button type="button" id="btnChoixDe3" name="btnChoixDe3">
+                  Avec Trois dés
+                </button>
+              </div>
+            </div>
+
+            <!-- SECTION VALIDATION -->
             <button name="makeChoice" id="makeChoice">
               <a class="makeChoice" href="jeux.html">Entrer</a>
             </button>
           </form>
         </div>
       </div>
-    </div>
+    </main>
 
+    <!-- SECTION FOOTER -->
+    <footer>
+      LE KRABS GAGNANT
+    </footer>
+
+    <!-- SECTION SCRIPT JS -->
     <script src="js/reglageClass.js"></script>
   </body>
 </html>
