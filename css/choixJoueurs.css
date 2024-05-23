@@ -1,3 +1,60 @@
+/******************* ROOT ****************************/
+:root{
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --primary: #007bff;
+    --secondary: #6c757d;
+    --success: #28a745;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #343a40;
+    --font-family-monospace: "Liberation Mono", "Courier New", monospace; 
+    --font-family-sans-serif:"Segoe UI", Roboto, "Helvetica Neue", Arial,
+    "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+  }
+  
+  /******************* FONTS ****************************/
+  @font-face {
+    font-family: "GraffitiYouth";
+    font-style: normal;
+    font-weight: bold;
+    src: url(/fonts/graffiti_youth/GraffitiYouth-Regular.otf) format("truetype");
+  }
+  @font-face {
+    font-family: "bombing";
+    font-style: normal;
+    font-weight: 100;
+    src: url(/fonts/bombing/Bombing.ttf) format("truetype");
+  }
+  @font-face {
+    font-family: "grafUrbain";
+    font-style: normal;
+    font-weight: 100;
+    src: url(/fonts/graffiti_urban/GraffitiUrban-Regular.otf) format("truetype");
+  }
+  @font-face {
+    font-family: "jakarta";
+    font-style: normal;
+    font-weight: 100;
+    src: url(/fonts/spartical_graffiti/SparticalGraffiti_PERSONAL_USE_ONLY.otf)
+      format("truetype");
+  }
+
+  /******************* PRE-REGLAGES ****************************/
 *, ::before, ::after {
     box-sizing: border-box;
     margin: 0;
@@ -8,43 +65,167 @@
     display: none;
 }
 
-html, body {
+
+h1 {
+  color: #f1f1f1;
+  text-align: center;
+}
+h4{
+  margin-bottom: 20px;
+  color: white;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+  }
+
+  html, body {
     height: 100%;
 }
 body {
     background-image: url('/img/NY6.jpg');
-    background-repeat: repeat;
+    background-repeat: no-repeat;
     background-size: cover;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: grafUrbain, Arial, Helvetica, sans-serif;
     display: grid;
     grid-template-rows: auto 1fr auto;
 }
-h4{
-    margin-bottom: 20px;
-    color: black;
+
+/*-------------------------HIDE MENU MOBILE TOGGLE----------------------------*/
+.container_hamburger {
+  background: #33619387;
+  color: #6ecddd;
+  font-family: Arial;
+  text-align: center;
+  max-width: 100%;
+  overflow-x: hidden;
+  padding: 0;
+  margin: 0;
+  display: none;
 }
+
+#toggle {
+  display: none;
+}
+
+/** Hamburger **/
+.hamburger {
+  position: absolute;
+  top: 4em;
+  right: 0%;
+  margin-left: -2em;
+  margin-top: -45px;
+  width: 3em;
+  height: 45px;
+  cursor: pointer;
+  z-index: 50;
+}
+.hamburger div {
+  position: relative;
+  width: 3em;
+  height: 7px;
+  border-radius: 3px;
+  background-color: #f8982b;
+  margin-top: 8px;
+  transition: all 0.3s ease-in-out;
+}
+
+/** Nav Styles **/
+.navToggle {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: #090e6bf4;
+  top: -100%; left: 0; right: 0; bottom: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  transform: scale(0);
+  z-index: 1;
+}
+.navToggle-wrapper {
+  position: relative;
+  overflow: hidden;
+  overflow-y: auto;
+  height: 100%;
+}
+#menuToggle {
+  text-align: left;
+  margin-left: 25%;
+}
+#menuToggle a {
+  position: relative;
+  text-decoration: none;
+  color: #6ecddd;
+  font-size: 2em;
+  display: inline-block;
+  margin-top: 1.25em;
+  transition: color 0.2s ease-in-out;
+  letter-spacing: 1px;
+  background-color: #dd996e;
+  width: 80%;
+  padding: 5px;
+  border-radius: 5px;
+}
+#menuToggle a:before {
+  content: '';
+  height: 0;
+  position: absolute;
+  width: 0.25em;
+  background-color: white;
+  left: -0.5em;
+  transition: all 0.2s ease-in-out;
+}
+#menuToggle a:hover {
+  color: white;
+}
+#menuToggle a:hover:before {
+  height: 100%;
+}
+
+/** Animations **/
+#toggle:checked + .hamburger .top-bun {
+  transform: rotate(-45deg);
+  margin-top: 25px;
+}
+#toggle:checked + .hamburger .bottom-bun {
+  opacity: 0;
+  transform: rotate(45deg);
+}
+#toggle:checked + .hamburger .meat {
+  transform: rotate(45deg);
+  margin-top: -7px;
+}
+#toggle:checked + .hamburger + .navToggle {
+  top: 0;
+  transform: scale(1);
+}
+/*-------------------------FIN MOBILE TOGGLE----------------------------*/
+
 .titreH3{
     width: 100%;
     height: auto;
     position: relative;
     padding: 20px;
 }
+
+#joueurA_manquant,#joueurB_manquant{
+  position: absolute;
+  margin-left: 2%;
+}
 #joueurB{
     margin-bottom: 5px;
 }
 
-#content {
+main {
     width: 100%;
     height: 100%;
     text-align: center;
 }
-h1 {
-    color: #f1f1f1;
-    text-align: center;
-}
+
 #cadreChoix {
     width: 500px;
-    height: 100%;
+    height: 80%;
     position: relative;
     margin-left: auto;
     margin-right: auto;
@@ -57,6 +238,7 @@ h1 {
     width: auto;
     height: 100%;
     text-align: center;
+    font-size: 1.5rem;
 }
 form{
     width: auto;
@@ -74,6 +256,7 @@ input{
     border: none;
     font-size: large;
     text-align: center;
+    -webkit-text-fill-color: black;
 }
 #cadreJoueurA{
     width: auto;
@@ -81,6 +264,7 @@ input{
     position: relative;
     padding: 10px 0;
 }
+
 #btConfirmerA {
     width: auto;
     position: relative;
@@ -91,6 +275,7 @@ input{
     font-size: large;
     box-shadow:1px 3px #50514f;
     transition:.3s;
+    background-color: green;
   }
   #btConfirmerA:hover, #btConfirmerA:active  {
     outline:none;
@@ -109,6 +294,7 @@ input{
     font-size: large;
     box-shadow:1px 3px #50514f;
     transition:.3s;
+    background-color: green;
   }
   #btConfirmerB:hover, #btConfirmerB:active  {
     outline:none;
@@ -134,12 +320,14 @@ input{
      cursor: pointer;
      transform:translateY(5px);
   }
+
 #cadreJoueurB{
     width: auto;
     height: auto;
     position: relative;
     padding: 10px 0;
 }
+
 #makeChoice {
     position: relative;
     width: 50%;
@@ -159,9 +347,69 @@ input{
      cursor: pointer;
      transform:translateY(5px);
   }
-footer {
-    background: #f1f1f1;
-    padding: 10px;
-    font-size: 20px;
+
+  footer{
     text-align: center;
+    font-family: GraffitiYouth, Arial, Helvetica, sans-serif;
+    font-size: 1.4rem;
+    background-color: #20c9964d;
+  }
+
+
+  /************** RESPONSIVE ********************************/
+
+@media screen and (max-width: 768px) {
+  #cadreChoix {
+    width: 95%;
+    top: 0px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  #titreJeu {
+    font-size: 130%;
+}
+  #cadreJoueurA {
+    width: 100%;
+}
+
+  .container_hamburger {
+    display: block;
+    z-index: 30;
+       }
+       .hamburger{
+           top: 3em;
+       }
+       #menuToggle{
+           margin-top: 50px;
+           margin-left: 0px;
+       }
+       
+       #menuToggle a{
+           width: 100%;
+       }
+       
+       .navToggle{
+           z-index: 40;
+       }
+       
+       #reza{
+           width: 100%;
+           padding: inherit;
+       }
+       #btReza{
+           width: 100%;
+           font-size: 1.5em;
+           padding: 20px 0px;
+       }
+
+       #joueurA_manquant{
+        font-size: 5rem;
+      }
+
+       footer{
+        height: 100%;
+        -webkit-text-fill-color: white;
+        align-content: center;
+      }
 }

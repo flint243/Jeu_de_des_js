@@ -1,9 +1,37 @@
+:root{
+  --blue: #007bff;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #dc3545;
+  --orange: #fd7e14;
+  --yellow: #ffc107;
+  --green: #28a745;
+  --teal: #20c997;
+  --cyan: #17a2b8;
+  --white: #fff;
+  --gray: #6c757d;
+  --gray-dark: #343a40;
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --light: #f8f9fa;
+  --dark: #343a40;
+  --font-family-monospace: "Liberation Mono", "Courier New", monospace; 
+  --font-family-sans-serif:"Segoe UI", Roboto, "Helvetica Neue", Arial,
+  "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+  "Noto Color Emoji";
+}
+
 /******************* FONTS ****************************/
 @font-face {
-  font-family: "boomster";
+  font-family: "GraffitiYouth";
   font-style: normal;
   font-weight: bold;
-  src: url(/fonts/boomster_graffiti/BOOMSTER.otf) format("truetype");
+  src: url(/fonts/graffiti_youth/GraffitiYouth-Regular.otf) format("truetype");
 }
 @font-face {
   font-family: "bombing";
@@ -33,6 +61,13 @@
 
 a {
   text-decoration: none;
+  color: white;
+}
+
+button{
+  background-color: cornflowerblue;
+  -webkit-text-fill-color: white;
+  font-family:GraffitiYouth, 'Courier New', Courier, monospace;
 }
 
 body {
@@ -40,11 +75,123 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
+  font-family:GraffitiYouth, 'Courier New', Courier, monospace;
 }
 /******************* MAIN ****************************/
 main {
   text-align: center;
 }
+
+/*-------------------------HIDE MENU MOBILE TOGGLE----------------------------*/
+.container_hamburger {
+  background: #33619387;
+  color: #6ecddd;
+  font-family: Arial;
+  text-align: center;
+  max-width: 100%;
+  overflow-x: hidden;
+  padding: 0;
+  margin: 0;
+  display: none;
+}
+
+#toggle {
+  display: none;
+}
+
+/** Hamburger **/
+.hamburger {
+  position: absolute;
+  top: 4em;
+  right: 0%;
+  margin-left: -2em;
+  margin-top: -45px;
+  width: 3em;
+  height: 45px;
+  cursor: pointer;
+  z-index: 50;
+}
+.hamburger div {
+  position: relative;
+  width: 3em;
+  height: 7px;
+  border-radius: 3px;
+  background-color: #f8982b;
+  margin-top: 8px;
+  transition: all 0.3s ease-in-out;
+}
+
+/** Nav Styles **/
+.navToggle {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: #090e6bf4;
+  top: -100%; left: 0; right: 0; bottom: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  transform: scale(0);
+  z-index: 1;
+}
+.navToggle-wrapper {
+  position: relative;
+  overflow: hidden;
+  overflow-y: auto;
+  height: 100%;
+}
+#menuToggle {
+  text-align: left;
+  margin-left: 25%;
+}
+#menuToggle a {
+  position: relative;
+  text-decoration: none;
+  color: #6ecddd;
+  font-size: 2em;
+  display: inline-block;
+  margin-top: 1.25em;
+  transition: color 0.2s ease-in-out;
+  letter-spacing: 1px;
+  background-color: #dd996e;
+  width: 80%;
+  padding: 5px;
+  border-radius: 5px;
+}
+#menuToggle a:before {
+  content: '';
+  height: 0;
+  position: absolute;
+  width: 0.25em;
+  background-color: white;
+  left: -0.5em;
+  transition: all 0.2s ease-in-out;
+}
+#menuToggle a:hover {
+  color: white;
+}
+#menuToggle a:hover:before {
+  height: 100%;
+}
+
+/** Animations **/
+#toggle:checked + .hamburger .top-bun {
+  transform: rotate(-45deg);
+  margin-top: 25px;
+}
+#toggle:checked + .hamburger .bottom-bun {
+  opacity: 0;
+  transform: rotate(45deg);
+}
+#toggle:checked + .hamburger .meat {
+  transform: rotate(45deg);
+  margin-top: -7px;
+}
+#toggle:checked + .hamburger + .navToggle {
+  top: 0;
+  transform: scale(1);
+}
+/*-------------------------FIN MOBILE TOGGLE----------------------------*/
+
 /***********************************************/
 
 /******************* TOP ****************************/
@@ -53,28 +200,31 @@ main {
   flex-direction: column;
   padding: 5px;
 }
-#scores1{
-  position: absolute;
-  width: 20%;
-  height: auto;
-  padding: 10px;
-  right: 10px;
-  display: block;
-  background-color: orange;
 
-}
-#scores2{
+#scores1 {
   position: absolute;
   width: 20%;
   height: auto;
   padding: 10px;
-  right: 10px;
-  display: block;
+  border-radius: 10px;
   background-color: orange;
+  display: none;
 }
-.score{
+#scores2 {
+  position: absolute;
+  width: 20%;
+  height: auto;
+  padding: 10px;
+  border-radius: 10px;
+  right: 10px;
+  background-color: orange;
+  display: none;
+}
+.score {
   position: relative;
   font-size: 2rem;
+  font-family: 'Courier New', Courier, monospace;
+  -webkit-text-fill-color: white;
   background-color: green;
 }
 
@@ -105,8 +255,8 @@ main {
   padding: 20px 30px;
   font-size: 2rem;
   color: beige;
+  letter-spacing: 2px;
 }
-
 
 /******************* CADRE DU JEU ****************************/
 #msgGroup {
@@ -146,20 +296,25 @@ main {
   display: none;
 }
 
-h2{
+h2 {
   width: 100%;
-  height: 40%;
-  position: relative;
+  height: auto;
+  position: absolute;
   top: 15%;
-  font-family: Boomster;
-  font-size: 5rem;
-  mask-image: url(/img/NY2.jpeg);
+  left: 0px;
+  font-family: GraffitiYouth, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 10rem;
   font-weight: bold;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke: 3px black;
   border: none;
   padding: 10px 30px;
-  color:black;
+  text-shadow:
+    3px 3px 0 #000,
+    -3px 3px 0 red,
+    -3px -3px 0 #000,
+    3px -3px 0 red;
 }
-
 
 #pseudoManque {
   width: 100%;
@@ -181,7 +336,7 @@ h2{
   color: red;
   border-radius: 5px;
   border: none;
-  font-family: bombing;
+  font-family: bombing, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-weight: 600;
   font-size: 5rem;
   padding: 20px 0px;
@@ -198,13 +353,14 @@ h2{
 .cadreDe {
   display: flex;
   flex-direction: row;
-  width: auto;
+  width: 70%;
   height: 400px;
   position: relative;
   margin-left: auto;
   margin-right: auto;
   padding: 0px 50px;
   border-radius: 1rem;
+  justify-content: center;
   justify-content: space-around;
   background-color: rgba(7, 205, 139, 0.704);
 }
@@ -470,7 +626,7 @@ h2{
   height: 200px;
   border-radius: 10px;
   position: relative;
-  
+
   top: 40%;
   border: 1px solid grey;
   display: none;
@@ -980,7 +1136,6 @@ h2{
 #btRetour {
   width: auto;
   position: relative;
-  font-family: grafUrbain;
   padding: 10px;
   border-radius: 5px;
   border: none;
@@ -998,7 +1153,6 @@ h2{
 #btRetour2 {
   width: auto;
   position: relative;
-  font-family: grafUrbain;
   padding: 10px;
   border-radius: 5px;
   border: none;
@@ -1018,7 +1172,6 @@ h2{
 #btReglage {
   width: auto;
   position: relative;
-  font-family: grafUrbain;
   padding: 10px;
   border-radius: 5px;
   border: none;
@@ -1042,7 +1195,6 @@ h2{
 #btRecommence {
   width: auto;
   position: relative;
-  font-family: grafUrbain;
   padding: 10px;
   border-radius: 5px;
   border: none;
@@ -1062,7 +1214,6 @@ h2{
 #btFin {
   width: auto;
   position: absolute;
-  font-family: grafUrbain;
   left: 45%;
   padding: 10px;
   border-radius: 5px;
@@ -1084,14 +1235,13 @@ h2{
 #btnChance {
   width: auto;
   position: relative;
-  font-family: "jakarta";
   padding: 10px 20px;
   border-radius: 5px;
   border: none;
   margin-left: auto;
   margin-right: auto;
   font-size: 2rem;
-  color: green;
+  background-color: #20c997;
   box-shadow: 1px 3px #50514f;
   transition: 0.3s;
   z-index: 1010;
@@ -1107,7 +1257,6 @@ button#btnChance:active {
 #btChangerJoueur {
   width: auto;
   position: relative;
-  font-family: grafUrbain;
   padding: 10px;
   border-radius: 5px;
   border: none;
@@ -1126,10 +1275,23 @@ button#btnChance:active {
 /***************************** RESPONSIVE ********************************************/
 
 @media screen and (max-width: 768px) {
+h2{
+  top: 0px;
+  font-size: 8rem;
+}
+
   #resultat,
   #resultatBis,
   #resultatTrois {
     display: none;
+  }
+
+  .scores {
+    font-size: 0.5rem;
+    top: 13%;
+  }
+  .score {
+    font-size: 1rem;
   }
 
   #accueilGroup {
@@ -1137,8 +1299,15 @@ button#btnChance:active {
   }
   #bandeauInfos {
     width: auto;
+    font-size: 1.5rem;
+    padding-top: 0px;
   }
 
+  #recommenceGroup {
+    width: 70%;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
   #centerMain {
     justify-items: center;
     display: grid;
@@ -1146,9 +1315,23 @@ button#btnChance:active {
     top: 0px;
   }
 
+  #winMessage {
+    width: auto;
+    z-index: 1;
+  }
+  #tripleWinMessage {
+    width: auto;
+    z-index: 1;
+  }
+
+  #time_out {
+    border: 1px solid black;
+  }
+
   .cadreDe {
     flex-wrap: wrap;
     width: 100%;
+    top: 10%;
   }
   #cadreDe1 {
     height: auto;
@@ -1177,41 +1360,210 @@ button#btnChance:active {
   }
 
   #chanceExt {
-    width: auto;
+    width: 100%;
+    position: relative;
+    top: -30px;
+  }
+  #btChance {
+    left: 35%;
+  }
+  #btFin {
+    top: 0px;
+    left: 35%;
   }
   #boutonsGroup {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    top: 40px;
-  }
-
-  #btnChance {
-    position: absolute;
-    top: 75%;
+    width: 100%;
+    top: 76%;
+    justify-content: space-between;
   }
 }
 
 @media screen and (max-width: 425px) {
+  #titreJeu {
+    font-size: 200%;
+}
+
+  h2 {
+    top: 0px;
+    font-size: 6rem;
+}
+
+  #hautMain {
+    padding: 1px;
+  }
+#bandeauInfosInt{
+    width: 85%;
+  }
+  .score {
+    font-size: inherit;
+}
+  #scores1 {
+    width: auto;
+    font-size: 0.6rem;
+  }
+  #scores2 {
+    width: auto;
+    font-size: 0.6rem;
+  }
+
+  #msgGroup {
+    z-index: 2;
+  }
+  #winMessage {
+    width: auto;
+    font-size: 1rem;
+  }
+  #tripleWinMessage {
+    width: auto;
+    font-size: 1rem;
+  }
+
+  #centerMain {
+    padding: 0px 5px;
+  }
+
   #btRetour {
+    width: auto;
+    padding: 10px;
+    font-size: inherit;
+  }
+  #btReglage {
+    padding: 10px;
+    font-size: inherit;
+  }
+  #btChangerJoueur {
+    padding: 10px;
+    font-size: inherit;
+  }
+  #chanceExt {
     width: 100%;
-    padding: inherit;
+    height: auto;
+    position: relative;
+    margin-top: 23%;
+  }
+  #btnChance {
+    position: relative;
+    top: 0px;
+    padding: 10px;
+    font-size: inherit;
+  }
+  #btFin {
+    position: relative;
+    padding: 10px;
+    font-size: inherit;
   }
 
   #bandeauInfos {
     width: 100%;
     padding: inherit;
+    font-size: inherit;
   }
 
   #recommenceGroup {
+    display: flex;
+    flex-direction: row;
     width: 100%;
+    position: absolute;
+    margin-top: 100px;
+    z-index: 1;
   }
   #btRecommence {
-    padding: inherit;
+    padding: 10px;
+    font-size: inherit;
+  }
+
+  .cadreDe {
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 100px;
+    border-radius: inherit;
   }
 
   #btChance {
     top: 85%;
     left: 30%;
+  }
+
+  #time_out {
+    display: none;
+    width: 100%;
+  }
+
+  .leDe,
+  .leDeBis,
+  .leDeTrois {
+    width: 100px;
+    height: 100px;
+  }
+
+  /*****************************/
+  .container_hamburger {
+    display: block;
+    z-index: 30;
+       }
+       .hamburger{
+           top: 3em;
+       }
+       #menuToggle{
+           margin-top: 50px;
+           margin-left: 0px;
+       }
+       
+       #menuToggle a{
+           width: 100%;
+       }
+       
+       .navToggle{
+           z-index: 40;
+       }
+       
+       #reza{
+           width: 100%;
+           padding: inherit;
+       }
+       #btReza{
+           width: 100%;
+           font-size: 1.5em;
+           padding: 20px 0px;
+       }
+
+  .pointCentre5 {
+    right: 35px;
+  }
+  .pointCentre5Bis{
+    right: 40px;
+  }
+  .pointBasG5,
+  .pointBasD5 {
+    top: 70%;
+  }
+
+  .pointCentre3Bis {
+    right: 40px;
+    top: 35px;
+  }
+  .pointBas3Bis {
+    left: 3px;
+    top: 75px;
+  }
+
+  .pointCentre3 {
+    left: 40px
+  }
+
+  .pointCentre3Trois {
+    right: 35px;
+    top: 35px;
+  }
+  .pointCentre5Trois {
+    right: 35px;
+  }
+  .pointBas3Trois {
+    left: 3px;
+    top: 75px;
   }
 }

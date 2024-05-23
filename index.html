@@ -1,22 +1,84 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil jeu</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PRESENTATION DU JEU</title>
 
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-    <audio autoplay src="/audioSaloon/Saloon_01Volume.mp3" class="audio1"></audio>
-    <div id="content">
-        
-        <div id="cadre">
-            <h1>JEU DE DES INTERACTIF EN J.S</h1>
-            <div id="cadreInt">
-                <button><a class="makeChoise" href="ChoixJoueurs.html">Entrer</a></button>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <!-- START OF THE TOGGLE -->
+      <div class="container_hamburger">
+        <input id="toggle" type="checkbox"></input>
+
+        <label for="toggle" class="hamburger">
+            <div class="top-bun"></div>
+            <div class="meat"></div>
+            <div class="bottom-bun"></div>
+        </label>
+
+        <div class="navToggle">
+          <div id="titreJeuExt"><br>
+            <div id="titreJeu">Jeu de dés | ACCUEIL</div>
+        </div>
+            <div class="navToggle-wrapper">
+                <div id="menuToggle">
+                    <a href="choixJoueurs.html">Choix des joueurs</a><br>
+                    <a href="Jeux.html">Jeu</a><br>
+                    <a href="reglage.html">Réglage</a><br><br>
+                </div>
             </div>
         </div>
     </div>
-</body>
+    <!-- END OF THE TOGGLE -->
+    </header>
+    <!-- SECTION AUDIO -->
+    <audio
+      autoplay
+      loop
+      src="/sounds//audioSaloon/Saloon_01Volume.mp3"
+      class="audio1"
+    ></audio>
+
+    <!-- SECTION MAIN -->
+    <main>
+      <div id="cadre">
+        <div id="cadreInt">
+          <h1>JEU DE DES INTERACTIF EN J.S</h1>
+          <div id="bases">
+            <h2>BASES ET REGLES DU JEU PRESENTE</h2>
+            <aside>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit
+                eos doloremque voluptates molestiae accusamus! Soluta, sequi
+                quia dolore veritatis neque iusto cumque asperiores eveniet?
+                Voluptatum quaerat amet sapiente voluptas perferendis fugiat
+                vitae, minima vero sed impedit temporibus suscipit, sit
+                molestiae atque fuga officia. Inventore perferendis eum ab iste,
+                quae odit aliquid mollitia quam voluptatum et ad error explicabo
+                voluptatem dolores officia aut illo eaque ut possimus eius
+                facere illum facilis tempore. Delectus accusamus repellendus
+                optio corrupti illo veritatis porro impedit dolores doloremque
+                obcaecati, cupiditate ullam excepturi possimus amet quod,
+                nostrum numquam. Eius velit officia sit provident? Laboriosam
+                enim qui accusamus.
+              </p>
+            </aside>
+          </div>
+          <div id="cadre3">
+            <button>
+              <a class="makeChoise" href="ChoixJoueurs.html">Entrer</a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- SECTION FOOTER -->
+    <footer>
+      LE KRABS GAGNANT
+    </footer>
+  </body>
 </html>
