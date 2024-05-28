@@ -4,7 +4,8 @@
 **Par Limay AMBOKA**
 
 Conception de Jeu de dés en 2 dimensions avec JavaScript.
-Dépos sur GitHub et déploiement
+Dépos sur GitHub, testé sur une branche secondaire avant d'effectuer une Merge sur la branche Main
+Déploiement de l'application avec Netlify.
 
 - **EDITEUR:** Visual Studio Code 
 
